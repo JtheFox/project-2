@@ -1,0 +1,68 @@
+{
+	"fairings": {
+		"reused": null,
+		"recovery_attempt": null,
+		"recovered": null,
+		"ships": []
+	},
+	"links": {
+		"patch": {
+			"small": "https://i.imgur.com/MKrgqcK.png",
+			"large": "https://i.imgur.com/F6xKxnI.png"
+		},
+		"reddit": {
+			"campaign": null,
+			"launch": "https://www.reddit.com/r/spacex/comments/vnc3uu/rspacex_ses22_launch_discussion_and_updates_thread/",
+			"media": null,
+			"recovery": null
+		},
+		"flickr": {
+			"small": [],
+			"original": []
+		},
+		"presskit": null,
+		"webcast": "https://youtu.be/ZjUvXWg2_fE",
+		"youtube_id": "ZjUvXWg2_fE",
+		"article": null,
+		"wikipedia": null
+	},
+	"static_fire_date_utc": null,
+	"static_fire_date_unix": null,
+	"net": false,
+	"window": null,
+	"rocket": "5e9d0d95eda69973a809d1ec",
+	"success": true,
+	"failures": [],
+	"details": null,
+	"crew": [],
+	"ships": [],
+	"capsules": [],
+	"payloads": [
+		"6243b93caf52800c6e91926f"
+	],
+	"launchpad": "5e9e4501f509094ba4566f84",
+	"flight_number": 170,
+	"name": "SES-22",
+	"date_utc": "2022-06-29T21:04:00.000Z",
+	"date_unix": 1656536640,
+	"date_local": "2022-06-29T17:04:00-04:00",
+	"date_precision": "hour",
+	"upcoming": false,
+	"cores": [
+		{
+			"core": "627843db57b51b752c5c5a54",
+			"flight": 2,
+			"gridfins": true,
+			"legs": true,
+			"reused": true,
+			"landing_attempt": true,
+			"landing_success": true,
+			"landing_type": "ASDS",
+			"landpad": "5e9e3033383ecb075134e7cd"
+		}
+	],
+	"auto_update": true,
+	"tbd": false,
+	"launch_library_id": "86a3010e-f8ef-4b64-a029-f4f92829772d",
+	"id": "6243aea5af52800c6e91925c"
+}
