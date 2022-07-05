@@ -1,0 +1,38 @@
+/* global elements */
+@import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+* {
+    font-family: 'K2D', sans-serif;
+}
+body {
+    min-height: 100vh;
+    background-color: azure;
+}
+
+/* header bar for main page layout */
+.layoutHeader {
+    padding: 0.75rem 1.25rem;
+    background-color: aliceblue;
+    line-height: 1rem;
+    align-items: baseline;
+}
+
+.layoutHeader h1 {
+    padding-top: 1rem;
+    margin-bottom: 0 !important;
+}
+
+.nextLaunch > p:not(:first-child) {
+    margin-left: 0.75rem;
+}
+
+/* sidebar for main layout */
+.layoutSidebar {
+    min-width: 10%;
+    max-width: fit-content;
+    background-color: lightblue;
+    padding: 1.5rem 0;
+}
+
+.layoutSidebar :is(a, p) {
+    text-align: end;
+}
