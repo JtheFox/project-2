@@ -8,12 +8,22 @@ class Favorite extends Model {};
 //Set up fields and rules for Favorite model 
 Favorite.init (
     {
-        //ID field for user 
+        //ID field for favorite model
         id: {
             type: DataTypes.INTEGER,
             allowNull: false, 
             autoIncrement: true, 
             primaryKey: true
+        },
+        
+        //launch_id field for favorite model
+        launch_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: "Launch",
+                key: "id"
+            }
         }
     },
     {
