@@ -1,5 +1,5 @@
 //Import Favorite model 
-const { Favorite } = require("../models");
+const { Favorite } = require('../models');
 
 //Create a list of favorite models
 const favoriteData = [

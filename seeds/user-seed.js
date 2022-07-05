@@ -1,5 +1,5 @@
 //Import user model 
-const { User } = require("../models");
+const { User } = require('../models');
 
 //Create a list of user 
 const userData = [

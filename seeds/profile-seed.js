@@ -1,5 +1,5 @@
 //Import Profile model 
-const { Profile } = require("../models");
+const { Profile } = require('../models');
 
 //Create a list of sample profile 
 const profileData = [
