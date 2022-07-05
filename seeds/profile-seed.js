@@ -40,3 +40,9 @@ const profileData = [
         "user_id": 5
     }
 ];
+
+//Inser user into the database 
+const seedProfiles = () => Profile.bulkCreate(profileData);
+
+//Export seeded profile 
+module.exports = seedProfiles;
