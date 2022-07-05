@@ -9,5 +9,7 @@ const launchRoutes = require('./launch-route');
 router.use('/users', userRoutes);
 router.use("/favorites", favoriteRoutes);
 router.use("/profile", profileRoutes);
+router.use("/launch", launchRoutes);
+
 
 module.exports = router;
