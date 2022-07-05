@@ -10,9 +10,8 @@ Launch.init (
     {
         //Id field for Launch model
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.VARCHAR,
             allowNull: false,
-            autoIncrement: true,
             primaryKey: true
         },
 
