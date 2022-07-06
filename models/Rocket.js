@@ -10,9 +10,8 @@ Rocket.init (
     {
         //ID field for Profile model
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.CHAR(24),
             allowNull: false, 
-            autoIncrement: true, 
             primaryKey: true
         },
 
@@ -25,31 +24,26 @@ Rocket.init (
         //launch_cost for Rocket model
         first_flight: {
             type: DataTypes.DATE,
-            allowNull: false
         },
 
         //launch_cost for Rocket model
         image: {
             type: DataTypes.STRING,
-            allowNull: false
         },
 
         //launch_cost for Rocket model
         wiki: {
             type: DataTypes.STRING, 
-            allowNull: false
         },
 
         //launch_cost for Rocket model
         description: {
             type: DataTypes.STRING, 
-            allowNull: false
         },
 
         //launch_cost for Rocket model
         launch_cost: {
-            type: DataTypes.DECIMAL, 
-            allowNull: false
+            type: DataTypes.INTEGER, 
         }
     },
     {

@@ -10,7 +10,7 @@ Launch.init (
     {
         //Id field for Launch model
         id: {
-            type: DataTypes.VARCHAR,
+            type: DataTypes.CHAR(24),
             allowNull: false,
             primaryKey: true
         },
@@ -24,7 +24,6 @@ Launch.init (
         //success field for Launch model 
         success: {
             type: DataTypes.BOOLEAN,
-            allowNull: false
         },
 
         //date field for Launch model 
@@ -36,35 +35,30 @@ Launch.init (
         //flight_number for Launch model 
         flight_number: {
             type: DataTypes.INTEGER,
-            allowNull: false
         },
 
         //icon for Launch model
         icon: {
             type: DataTypes.STRING,
-            allowNull: false
         },
 
         //forum for Launch model 
         forum: {
             type: DataTypes.STRING, 
-            allowNull: true
         },
 
         //webcast for Launch model 
         webcast:  {
             type: DataTypes.STRING, 
-            allowNull: true
         },
 
         //wiki for Launch model 
         wiki: {
             type: DataTypes.STRING,
-            allowNull: true
         },
 
         rocket_id: {
-            type: DataTypes.VARCHAR,
+            type: DataTypes.CHAR(24),
             allowNull: false,
             references: {
                 model: 'rocket',
