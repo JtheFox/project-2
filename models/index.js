@@ -3,6 +3,7 @@ const User = require('./User');
 const Favorite = require('./Favorite');
 const Profile = require('./Profile');
 const Launch = require('./Launch');
+const Rocket = require("./Rocket");
 
 //Relationships between the model 
 Profile.belongsTo(User, {
