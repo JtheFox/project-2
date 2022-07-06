@@ -31,17 +31,23 @@ const seedAll = async () => {
   const launchDataRaw = await launchesResponse.json();
   const launchData = launchDataRaw.map(launch => parseLaunchData(launch));
 
-  //Seed the Rocket model
+  //Get Launch and Rocket Data
   const rocketList = [];
-  launchDataRaw.forEach(launch => { if (rocketList.indexOf(launch.rocket) === -1) rocketList.push(launch.rocket) });
+  launchDataRaw.forEach(launch => { 
+    if (rocketList.indexOf(launch.rocket) === -1) rocketList.push(launch.rocket);
+  });
   const rocketData = [];
-  rocketList.forEach(async (rocketID) => {
+  for (const rocketID of rocketList) {
     const rocketsResponse = await fetch(`https://api.spacexdata.com/v4/rockets/${rocketID}`);
     const rocket = await rocketsResponse.json();
     rocketData.push(parseRocketData(rocket));
-  });
+  }
+
   await seedRockets(rocketData);
-  console.log("\n---------- Launch Rocket ----------\n");
+  console.log("\n---------- ROCKETS SEEDED ----------\n");
+
+  await seedLaunches(launchData);
+  console.log("\n---------- LAUNCHES SEEDED ----------\n");
 
   //End process when all model is seeded
   process.exit();
