@@ -6,13 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "seed": "node seeds/seed.js",
     "lint": "npx eslint **/*.js",
     "lint:fix": "npx eslint **/*.js --fix"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
     "eslint": "^8.19.0",
-    "nodemon": "^2.0.3"
+    "eslint-config-prettier": "^8.5.0",
+    "nodemon": "^2.0.3",
+    "prettier": "^2.7.1"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
