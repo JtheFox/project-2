@@ -97,13 +97,10 @@ router.put("/:id", withAuth, async (req, res) => {
 
     } catch (err) {
 
+        //Return error if any
         res.json(err);
     }
 });
 
-
-//   Delete a Profile
-
-
-
+//Export router
 module.exports = router;
