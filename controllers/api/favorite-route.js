@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const { Favorite } = require("../../models");
+const router = require('express').Router();
+const { Favorite } = require('../../models');
 
 // GET all Favorites
 router.get("/", async (req, res) => {
