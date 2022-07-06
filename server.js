@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 // Set up sessions
 const sess = {
-    secret: process.env.SECRET,
+    secret: process.env.SECRET || 'super secret blastoff secret',
     cookie: {
         maxAge: 10 * 60 * 1000 // 10 minutes
     },

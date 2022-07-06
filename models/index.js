@@ -6,21 +6,33 @@ const Launch = require('./Launch');
 const Rocket = require("./Rocket");
 
 //Relationships between the model 
+User.hasOne(Profile, {
+    foreignKey: "profile_id"
+});
+
+User.hasOne(Favorite, {
+    foreignKey: "favorite_id"
+});
+
 Profile.belongsTo(User, {
     foreignKey: "user_id"
 });
 
-User.belongsTo(Profile, {
+Favorite.belongsTo(User, {
     foreignKey: "user_id"
-});
-
-User.hasMany(Favorite, {
-    foreignKey: "launch_id"
 });
 
 Favorite.hasMany(Launch, {
     foreignKey: "launch_id"
 });
 
+Launch.hasOne(Rocket, {
+    foreignKey: "rocket_id"
+});
+
+Rocket.belongsTo(Launch, {
+    foreignKey: "launch_id"
+});
+
 //Export Models 
-module.exports = { User, Favorite, Profile, Launch }
+module.exports = { User, Favorite, Profile, Launch, Rocket }
