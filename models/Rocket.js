@@ -1,5 +1,5 @@
 //Import required packages
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, DatabaseError } = require('sequelize');
 const sequelize = require('../config/connection');
 
 //Initialize Favorite model by extending off Sequelize's Model Class
@@ -16,36 +16,40 @@ Rocket.init (
             primaryKey: true
         },
 
-        //username field for Profile model 
-        display_name: {
-            type: DataTypes.STRING
+        //launch_cost for Rocket model
+        name: {
+            type: DataTypes.STRING, 
+            alllowNull: false
         },
 
-        //about field for Profile model
-        about: {
+        //launch_cost for Rocket model
+        first_flight: {
+            type: DataTypes.DATE,
+            allowNull: false
+        },
+
+        //launch_cost for Rocket model
+        image: {
             type: DataTypes.STRING,
-            defaultValue: "Write a description about yourself",
-            allowNull: true
+            allowNull: false
         },
 
-        //favorite_id field for Profile model
-        favorite_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: "favorite",
-                key: "id"
-            }
+        //launch_cost for Rocket model
+        wiki: {
+            type: DataTypes.STRING, 
+            allowNull: false
         },
 
-        //User id field for Profile model
-        user_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false, 
-            references: {
-                model: "User",
-                key: "id"
-            }
+        //launch_cost for Rocket model
+        description: {
+            type: DataTypes.STRING, 
+            allowNull: false
+        },
+
+        //launch_cost for Rocket model
+        launch_cost: {
+            type: DataTypes.DECIMAL, 
+            allowNull: false
         }
     },
     {
