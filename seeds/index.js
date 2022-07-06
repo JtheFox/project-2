@@ -1,5 +1,5 @@
 //Import required seed model and packages
-const seedUsers = require('./userSeed');
+const seedUsers = require('./user-seed');
 const seedFavorites = require('./favorite-seed');
 const seedProfiles = require('./profile-seed');
 const seedLaunches = require('./launch-seed');
