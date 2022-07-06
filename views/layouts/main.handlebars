@@ -1,1 +1,54 @@
-{{!--  --}}
+{{!-- Takes in loggedIn and nextLaunchDate --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <title>Blastoff</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header class="layoutHeader">
+        <h1 class="title is-1">Blastoff</h1>
+        <div class="nextLaunch is-flex is-flex-wrap-wrap title is-2">
+            <p>Next Launch:</p>
+            <a class="title-link" href="#">{{nextLaunchDate}}</a>
+        </div>
+    </header>
+
+    <main>
+        <aside class="sidebar is-size-4">
+            <div class="sidebar-group">
+                <p class="sidebar-label">Navigation</p>
+                <a class="sidebar-link" href="#">Home</a>
+                {{#if loggedIn}}
+                <a class="sidebar-link" href="#">Search</a>
+                {{/if}}
+                <a class="sidebar-link" href="#">Saved</a>
+            </div>
+            <div class="sidebar-group">
+                <p class="sidebar-label">Account</p>
+                {{#if loggedIn}}
+                <a class="sidebar-link" href="#">Profile</a>
+                <a class="sidebar-link" href="#">Log Out</a>
+                {{else}}
+                <a class="sidebar-link" href="#">Log In</a>
+                <a class="sidebar-link" href="#">Sign Up</a>
+                {{/if}}
+            </div>
+        </aside>
+
+        <section class="layoutContent">
+            {{{body}}}
+        </section>
+    </main>
+</body>
+
+</html>
