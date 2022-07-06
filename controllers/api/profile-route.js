@@ -74,8 +74,32 @@ router.post("/", async (req, res) => {
     }
 });
 
+//Update A Profile
+router.put("/:id", withAuth, async (req, res) => {
 
-// UPDATE a Profile
+    try {
+
+         //Update a profile
+         const createProfile = await Profile.update(
+            {
+                display_name: req.body.display_name,
+                about: req.body.about,
+                favorite_id: req.body.favorite_id,
+                user_id: req.session.user_id
+            },
+            {
+                where: { id: req.params.id }
+            }
+        );
+
+        //Return data in json file
+        res.json(createProfile);
+
+    } catch (err) {
+
+        res.json(err);
+    }
+});
 
 
 //   Delete a Profile
