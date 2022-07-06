@@ -77,7 +77,7 @@ Launch.init (
         sequelize,  
         freezeTableName: true, 
         underscored: true, 
-        modelName: "Favorite"
+        modelName: "launch"
     }
 );
 

@@ -21,7 +21,7 @@ Favorite.init (
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: "Launch",
+                model: "launch",
                 key: "id"
             }
         }
@@ -32,7 +32,7 @@ Favorite.init (
         timestamps: false, 
         freezeTableName: true, 
         underscored: true, 
-        modelName: "Favorite"
+        modelName: "favorite"
     }
 );
 

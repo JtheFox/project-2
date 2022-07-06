@@ -58,7 +58,7 @@ Rocket.init (
         timestamps: false, 
         freezeTableName: true, 
         underscored: true, 
-        modelName: "Favorite"
+        modelName: "favorite"
     }
 );
 

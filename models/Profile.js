@@ -43,7 +43,7 @@ Profile.init (
             type: DataTypes.INTEGER,
             allowNull: false, 
             references: {
-                model: "User",
+                model: "user",
                 key: "id"
             }
         }
@@ -54,7 +54,7 @@ Profile.init (
         timestamps: false, 
         freezeTableName: true, 
         underscored: true, 
-        modelName: "Favorite"
+        modelName: "favorite"
     }
 );
 
