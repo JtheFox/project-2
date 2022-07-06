@@ -28,7 +28,7 @@ const seedAll = async () => {
   console.log("\n---------- Launch Seeded ----------\n");
 
   //Seed the Profile model
-  await seedRocket();
+  await seedRockets();
   console.log("\n---------- Launch Rocket ----------\n");
 
   //End process when all model is seeded
