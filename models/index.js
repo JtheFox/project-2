@@ -35,4 +35,4 @@ Rocket.belongsTo(Launch, {
 });
 
 //Export Models 
-module.exports = { User, Favorite, Profile, Launch }
+module.exports = { User, Favorite, Profile, Launch, Rocket }
