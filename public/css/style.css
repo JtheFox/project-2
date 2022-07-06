@@ -16,6 +16,10 @@ a {
     text-decoration: none;
 }
 
+.title-link {
+    text-decoration: underline;
+}
+
 /* header bar for main page layout */
 .layoutHeader {
     display: flex;
@@ -32,7 +36,7 @@ a {
     padding-top: 1rem;
 }
 
-.nextLaunch > p:not(:first-child) {
+.nextLaunch .title-link {
     margin-left: 0.75rem;
 }
 
