@@ -29,6 +29,25 @@ a {
     text-decoration: underline;
 }
 
+/* login/signup pages */
+.loginError {
+    color: red;
+}
+
+.loginBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.otherActionMessage {
+    text-align: center;
+}
+
+.otherActionMessage a {
+    color: blue;
+    text-decoration: underline;
+}
+
 /* header bar for main page layout */
 .layoutHeader {
     display: flex;
