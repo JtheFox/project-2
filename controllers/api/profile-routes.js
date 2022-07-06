@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Profile, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //GET method to get all profile
 router.get("/", withAuth, async (req, res) => {
