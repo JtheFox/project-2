@@ -1,5 +1,9 @@
 /* global elements */
 @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+:root {
+    --light: #d2d2d2;
+}
+
 * {
     font-family: 'K2D', sans-serif;
 }
@@ -8,7 +12,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: azure;
+    background-color: #222;
+    color: var(--light);
+}
+
+.title {
+    color: var(--light) !important;
 }
 
 a {
@@ -27,13 +36,18 @@ a {
     align-items: baseline;
     justify-content: space-between;
     padding: 0.75rem 1.25rem;
-    background-color: aliceblue;
     line-height: 1rem;
+    border-bottom: 2px solid var(--light);
 }
 
 .layoutHeader h1 {
     margin-bottom: 0 !important;
     padding-top: 1rem;
+}
+
+.nextLaunch {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .nextLaunch .title-link {
@@ -53,7 +67,7 @@ main {
     align-items: end;
     width: 175px;
     padding: 1.5rem 0;
-    background-color: lightblue;
+    border-right: 2px solid var(--light);
 }
 
 .sidebar :is(a, p) {
@@ -94,4 +108,31 @@ main {
 /* main content area */
 .layoutContent {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.5rem;
+}
+
+/* home page */
+.page-title {
+    margin-bottom: 1.5rem;
+}
+
+/* launch details */
+.launch-card {
+    display: flex;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+}
+
+.launch-card:not(:first-of-type) {
+    margin-top: 2rem;
+}
+
+.launch-icon {
+    max-height: 200px;
+    width: auto;
+    margin-right: 2rem;
 }
