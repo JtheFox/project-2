@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const { Launch } = require("../../models");
+const router = require('express').Router();
+const { Launch } = require('../../models');
 
 // GET all Launches
 router.get("/", async (req, res) => {

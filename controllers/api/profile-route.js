@@ -1,5 +1,5 @@
-const router = require("express").Router();
-const { Profile } = require("../../models");
+const router = require('express').Router();
+const { Profile } = require('../../models');
 
 // GET all Profiles
 

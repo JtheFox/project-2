@@ -7,8 +7,8 @@ const launchRoutes = require('./launch-route');
 
 //Routes for url 
 router.use('/users', userRoutes);
-router.use("/favorites", favoriteRoutes);
-router.use("/profile", profileRoutes);
-router.use("/launch", launchRoutes);
+router.use('/favorites', favoriteRoutes);
+router.use('/profile', profileRoutes);
+router.use('/launch', launchRoutes);
 
 module.exports = router;
