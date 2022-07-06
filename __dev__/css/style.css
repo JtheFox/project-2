@@ -6,14 +6,18 @@
 body {
     min-height: 100vh;
     background-color: azure;
+    display: flex;
+    flex-direction: column;
 }
-
 /* header bar for main page layout */
 .layoutHeader {
     padding: 0.75rem 1.25rem;
     background-color: aliceblue;
     line-height: 1rem;
     align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .layoutHeader h1 {
@@ -25,14 +29,27 @@ body {
     margin-left: 0.75rem;
 }
 
+/* below header */
+main {
+    flex-grow: 1;
+    display: flex;
+}
+
 /* sidebar for main layout */
 .layoutSidebar {
-    min-width: 10%;
-    max-width: fit-content;
+    width: 175px;
     background-color: lightblue;
     padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 .layoutSidebar :is(a, p) {
     text-align: end;
+}
+
+/* main content area */
+.layoutContent {
+    flex-grow: 1;
 }
