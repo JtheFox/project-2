@@ -61,7 +61,16 @@ Launch.init (
         wiki: {
             type: DataTypes.STRING,
             allowNull: true
-        }
+        },
+
+        rocket_id: {
+            type: DataTypes.VARCHAR,
+            allowNull: false,
+            references: {
+                model: 'rocket',
+                key: 'id'
+            }
+        },
     },
     {
         //Rules for Launch model 
