@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS unnamed_db;
-CREATE DATABASE unnamed_db;
+DROP DATABASE IF EXISTS space_launch_db;
+CREATE DATABASE space_launch_db;
