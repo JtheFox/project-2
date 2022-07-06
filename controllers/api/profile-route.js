@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Profile, User } = require('../../models');
 
 //GET method to get all profile
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
 
     try {
 
@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 });
 
 //GET method to get a profile 
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
 
     try {
 
@@ -52,7 +52,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //Create a new Profile
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
 
     try {
 
