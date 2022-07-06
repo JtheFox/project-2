@@ -3,6 +3,7 @@ const seedUsers = require('./userSeed');
 const seedFavorites = require('./favorite-seed');
 const seedProfiles = require('./profile-seed');
 const seedLaunches = require('./launch-seed');
+const seedRocket = require('./rocket-seed');
 const sequelize = require('../config/connection');
 
 //Seed all the model to the database
@@ -25,6 +26,10 @@ const seedAll = async () => {
   //Seed the Profile model
   await seedLaunches();
   console.log("\n---------- Launch Seeded ----------\n");
+
+  //Seed the Profile model
+  await seedRocket();
+  console.log("\n---------- Launch Rocket ----------\n");
 
   //End process when all model is seeded
   process.exit();
