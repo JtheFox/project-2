@@ -57,7 +57,7 @@ router.get('/login', async (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('login');
+  res.render('login', { layout: 'login-layout' });
 });
 
 router.get('/signup', async (req, res) => {
@@ -65,7 +65,7 @@ router.get('/signup', async (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('signup');
+  res.render('signup', { layout: 'login-layout' });
 });
 
 module.exports = router;
