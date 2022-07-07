@@ -4,34 +4,32 @@
                     <div class="tile is-parent is-vertical">
                         <article class="tile is-child notification has-background-success-dark">
                             <p class="title">{{launch.name}}</p>
-                            <p class="subtitle">{{launch.date}}{{launch.success}}</p>
+                            <p class="content">Launch Date:{{launch.date}}</p>
+                            <p class="content">Landed: {{launch.success}}</p>
+                            
                         </article>
                         <article class="tile is-child notification has-background-success-dark">
                             <div class="content">
-                                <figure>
-                                    {{launch.icon}}
-                                </figure>
+                                <img src="{{launch.icon}}" alt="launch photo">
                             </div>
                         </article>
                     </div>
                     <div class="tile is-parent">
                         <article class="tile is-child notification has-background-success-dark">
-                            <p class="title">{{launch.name}} Forum</p>
-                            <p class="subtitle">{{launch.forum}}</p>
+                            <p class="title">{{launch.name}}'s Forum</p>
+                            <a class="content" href="{{launch.forum}}">click here</a>
                         </article>
                         <article class="tile is-child notification has-background-success-dark">
-                            <p class="title">{{rocket.name}} Cost</p>
-                            <p class="subtitle">{{rocket.launch_cost}}</p>
+                            <p class="title">{{launch.rocket.name}}'s Cost</p>
+                            <p class="content">{{launch.rocket.launch_cost}}</p>
                         </article>
                     </div>
                 </div>
                 <div class="tile is-parent">
                     <article class="tile is-child notification has-background-success-dark">
-                        <p class="title">{{launch.name}} Video</p>
+                        <p class="title">{{launch.name}}'s Video</p>
                         <div class="content">
-                            <figure>
-                                {{launch.webcast}}
-                            </figure>
+                            <a href="{{launch.webcast}}">click here</a>
                         </div>
                     </article>
                 </div>
@@ -42,11 +40,11 @@
                         <p class="title">Launch and Rocket Info</p>
                         <p class="subtitle">{{launch.name}}</p>
                         <div class="content">
-                            <p>{{launch.wiki}}</p>
+                            <a href="{{launch.wiki}}">click here</a>
                         </div>
-                        <p class="subtitle">{{rocket.name}}</p>
-                        <div>
-                            <p>{{rocket.description}}</p>
+                        <p class="subtitle">{{launch.rocket.name}}</p>
+                        <div class="content">
+                            <p>{{launch.rocket.description}}</p>
                         </div>
                     </div>
                 </article>
