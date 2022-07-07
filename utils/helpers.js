@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 module.exports = {
     format_date: (date) => {
-        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear() + 5}`;
+        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
     },
     getNextLaunch: async () => {
         const response = await fetch('https://api.spacexdata.com/v5/launches/next');
