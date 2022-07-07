@@ -4,6 +4,11 @@ module.exports = {
     format_date: (date) => {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear() + 5}`;
     },
+    getNextLaunch: async () => {
+        const response = await fetch('https://api.spacexdata.com/v5/launches/next');
+        const nextLaunch = await response.json();
+        return { date: nextLaunch.date_utc, forum: nextLaunch.links.reddit.campaign}
+    },
     parseLaunchData: (launch) => {
         return {
             id: launch.id,

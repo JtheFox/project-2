@@ -1,14 +1,17 @@
 const router = require('express').Router();
+const { getNextLaunch } = require('../utils/helpers');
 const { Launch } = require('../models');
 
 //GET method to display the search page
 router.get('/', async (req, res) => {
-    res.render('search');
+    const nextLaunch = await getNextLaunch();
+    res.render('search', { nextLaunch, loggedIn: req.session.loggedIn });
 });
 
 //POST method to be able to search the launches
 router.post('/', async (req, res) => {
     try {
+        const nextLaunch = await getNextLaunch();
         // check if searching by id or name
         if (/[a-z\d]{24}/.test(req.body.query)) {
             const dbLaunchData = await Launch.findByPk(req.body.query);
@@ -17,7 +20,7 @@ router.post('/', async (req, res) => {
                 return;
             }
             const launch = dbLaunchData.get({ plain: true });
-            res.render('launch-page', { launch, loggedIn: req.session.loggedIn });
+            res.render('launch-page', { launch, nextLaunch, loggedIn: req.session.loggedIn });
         } else {
             const dbLaunchData = await Launch.findAll({
                 where: {
@@ -32,7 +35,7 @@ router.post('/', async (req, res) => {
             }
             const launches = dbLaunchData.map(post => post.get({ plain: true }));
             if (dbLaunchData.length === 1) res.render('launch-page', { launch: launches[0], loggedIn: req.session.loggedIn });
-            else res.render('homepage', { launches, loggedIn: req.session.loggedIn })
+            else res.render('homepage', { launches, nextLaunch, loggedIn: req.session.loggedIn })
         }
         const search = await Launch.findAll(req.body.query);
         if (!search) {

@@ -1,12 +1,13 @@
 //Import required packages and models
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { getRocketData } = require('../utils/helpers');
+const { getRocketData, getNextLaunch } = require('../utils/helpers');
 const { Launch, User } = require('../models');
 
 //GET method to get all launches
 router.get('/', async (req, res) => {
   try {
+    const nextLaunch = await getNextLaunch();
     //Find all launch data
     const dbLaunchData = await Launch.findAll({
       attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
@@ -17,6 +18,7 @@ router.get('/', async (req, res) => {
     //Render the home page
     res.render('homepage', {
       launches,
+      nextLaunch,
       loggedIn: req.session.loggedIn
     });
   } catch (err) {
@@ -28,6 +30,7 @@ router.get('/', async (req, res) => {
 //GET method to show a specific launch when clicked
 router.get('/:id', async (req, res) => {
   try {
+    const nextLaunch = await getNextLaunch();
     //Find the launch by id
     const dbLaunchData = await Launch.findByPk(req.params.id);
     //If no launch exist, display error
@@ -39,7 +42,7 @@ router.get('/:id', async (req, res) => {
     const launch = dbLaunchData.get({ plain: true });
     const rocket = await getRocketData(launch.rocket_id);
     //Render the launch page
-    res.render('launch-page', { launch, rocket, loggedIn: req.session.loggedIn });
+    res.render('launch-page', { launch, rocket, nextLaunch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -51,7 +54,7 @@ router.get('/saved', withAuth, async (req, res) => {
   try {
     const dbUserData = await User.findByPk(req.session.user_id);
     const user = dbUserData.get({ plan: true });
-    console.log(user)
+    console.log(user);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
