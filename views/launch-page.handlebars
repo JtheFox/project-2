@@ -3,28 +3,34 @@
                 <div class="tile">
                     <div class="tile is-parent is-vertical">
                         <article class="tile is-child notification has-background-success-dark">
-                            <p class="title">Launch name</p>
-                            <p class="subtitle">launch time / success: launch.success</p>
+                            <p class="title">{{launch.name}}</p>
+                            <p class="subtitle">{{launch.date}}{{launch.success}}</p>
                         </article>
                         <article class="tile is-child notification has-background-success-dark">
-                            <p class="title">Links</p>
-                            <p class="subtitle">all links</p>
+                            <div class="content">
+                                <figure>
+                                    {{launch.icon}}
+                                </figure>
+                            </div>
                         </article>
                     </div>
                     <div class="tile is-parent">
                         <article class="tile is-child notification has-background-success-dark">
-                            <p class="title">Launch Cost</p>
-                            <p class="subtitle">launch_cost: rocket.cost_per_launch</p>
+                            <p class="title">{{launch.name}} Forum</p>
+                            <p class="subtitle">{{launch.forum}}</p>
+                        </article>
+                        <article class="tile is-child notification has-background-success-dark">
+                            <p class="title">{{rocket.name}} Cost</p>
+                            <p class="subtitle">{{rocket.launch_cost}}</p>
                         </article>
                     </div>
                 </div>
                 <div class="tile is-parent">
                     <article class="tile is-child notification has-background-success-dark">
-                        <p class="title">Youtube Viewport</p>
-                        <p class="subtitle">launch video</p>
+                        <p class="title">{{launch.name}} Video</p>
                         <div class="content">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/640x480.png">
+                            <figure>
+                                {{launch.webcast}}
                             </figure>
                         </div>
                     </article>
@@ -33,10 +39,14 @@
             <div class="tile is-parent">
                 <article class="tile is-child notification has-background-success-dark">
                     <div class="content">
-                        <p class="title">Launch Info</p>
-                        <p class="subtitle">(payloads, rocket, crew)</p>
+                        <p class="title">Launch and Rocket Info</p>
+                        <p class="subtitle">{{launch.name}}</p>
                         <div class="content">
-                            <p>(payloads, rocket, crew)</p>
+                            <p>{{launch.wiki}}</p>
+                        </div>
+                        <p class="subtitle">{{rocket.name}}</p>
+                        <div>
+                            <p>{{rocket.description}}</p>
                         </div>
                     </div>
                 </article>
