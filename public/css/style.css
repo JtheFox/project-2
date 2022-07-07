@@ -25,11 +25,16 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: white !important;
+}
+
 .title-link {
     text-decoration: underline;
 }
 
 .page-title {
+    text-align: center;
     margin-bottom: 1.5rem;
 }
 
@@ -142,7 +147,6 @@ main {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    align-items: center;
     padding-top: 0.5rem;
 }
 
@@ -152,7 +156,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 50%;
+    margin-left: 25%;
 }
 
 .launch-card:not(:first-of-type) {
@@ -160,8 +164,8 @@ main {
 }
 
 .launch-icon {
-    width: auto;
-    max-height: 200px;
+    height: 200px;
+    width: 200px;
     margin-right: 2rem;
 }
 
