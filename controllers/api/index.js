@@ -5,4 +5,5 @@ const userRoutes = require('./user-routes.js');
 //Routes for url 
 router.use('/users', userRoutes);
 
+//Export router
 module.exports = router;
