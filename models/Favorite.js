@@ -18,7 +18,7 @@ Favorite.init (
         
         //launch_id field for favorite model
         launch_id: {
-            type: DataTypes.CHAR(24),
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: "launch",
