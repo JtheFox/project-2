@@ -34,6 +34,15 @@ a {
 }
 
 /* login/signup pages */
+.layoutLogin {
+    display: flex;
+    flex-direction: column;
+}
+
+.layoutLogin .hero {
+    margin-top: 4rem;
+}
+
 .loginError {
     color: red;
 }
