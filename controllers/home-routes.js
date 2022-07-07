@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
 });
 
 //GET method to show a specific launch when clicked
-router.get('/launch/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
 
     //Find the launch by id
