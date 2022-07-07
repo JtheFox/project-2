@@ -1,19 +1,16 @@
 //Import models
 const User = require('./User');
 const Launch = require('./Launch');
-const Rocket = require("./Rocket");
+const Rocket = require('./Rocket');
 
 //Relationships between the model 
-User.hasMany(Launch, {
-    foreignKey: "launch_id"
-});
+User.hasMany(Launch);
 
-Launch.hasOne(Rocket, {
-    foreignKey: "rocket_id"
-});
+Launch.hasOne(Rocket);
 
 Rocket.belongsToMany(Launch, {
-    foreignKey: "launch_id"
+    foreignKey: 'rocket_id',
+    through: 'launchRocket'
 });
 
 //Export Models 

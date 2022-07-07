@@ -28,14 +28,6 @@ User.init(
                 len: [6],
             },
         },
-        launch_id: {
-            type: DataTypes.CHAR(24),
-            references: {
-                model: 'launch',
-                key: 'id',
-                unique: false,
-            }
-        }
     },
     {
         hooks: {

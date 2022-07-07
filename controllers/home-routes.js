@@ -3,6 +3,11 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Launch, Rocket, User } = require('../models');
 
+router.get('/rockets', async (req, res) => {
+  const dbLaunchData = await Rocket.findAll({});
+  res.json(dbLaunchData)
+})
+
 //GET method to get all launches
 router.get('/', async (req, res) => {
   try {
@@ -46,7 +51,7 @@ router.get('/:id', async (req, res) => {
       res.status(404).json({ message: 'No launch found with this id' });
       return;
     }
-
+    
     //Seralize the data
     const launch = dbLaunchData.get({ plain: true });
     console.log(launch);
