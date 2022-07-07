@@ -1,7 +1,12 @@
+const router = require('express').Router();
 const { Launch, Rocket } = require('../models');
 
 // Search launch by name or id
-router.post('/', function (req, res) {
+router.get('/', async (req, res) => {
+    res.render('search');
+});
+
+router.post('/', async (req, res) => {
     try {
         // check if searching by id or name
         if (/[a-z\d]{24}/.test(req.body.query)) {
@@ -13,7 +18,7 @@ router.post('/', function (req, res) {
                 return;
             }
             const launch = dbLaunchData.get({ plain: true });
-            res.render('view-launch', { launch, loggedIn: req.session.loggedIn });
+            res.render('launch-page', { launch, loggedIn: req.session.loggedIn });
         } else {
             const dbLaunchData = await Launch.findAll({
                 where: {
@@ -27,7 +32,7 @@ router.post('/', function (req, res) {
                 return;
             }
             const launches = dbLaunchData.map(post => post.get({ plain: true }));
-            if (dbLaunchData.length === 1) res.render('view-launch', { launch: launches[0], loggedIn: req.session.loggedIn });
+            if (dbLaunchData.length === 1) res.render('launch-page', { launch: launches[0], loggedIn: req.session.loggedIn });
             else res.render('homepage', { launches, loggedIn: req.session.loggedIn })
         }
         const search = await Launch.findAll(req.body.query);
@@ -40,3 +45,5 @@ router.post('/', function (req, res) {
         res.status(500).json(err);
     }
 });
+
+module.exports = router; 

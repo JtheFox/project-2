@@ -34,7 +34,7 @@ router.get('/launch/:id', async (req, res) => {
       return;
     }
     const launch = dbLaunchData.get({ plain: true });
-    res.render('view-launch', { launch, loggedIn: req.session.loggedIn });
+    res.render('launch-page', { launch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
