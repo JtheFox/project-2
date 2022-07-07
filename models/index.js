@@ -10,8 +10,8 @@ User.hasOne(Profile, {
     foreignKey: "profile_id"
 });
 
-User.hasOne(Favorite, {
-    foreignKey: "favorite_id"
+User.hasMany(Launch, {
+    foreignKey: "launch_id"
 });
 
 Profile.belongsTo(User, {
