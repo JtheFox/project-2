@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 const { Launch, Rocket } = require('../models');
 
 router.get('/', (req, res) => {
@@ -42,6 +43,10 @@ router.get('/launch/:id', (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/saved', withAuth, async (req, res) => {
+  
+}); 
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
