@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Favorite } = require('../../models');
-const withAuth = require("../utils/auth");
+const withAuth = require('../utils/auth');
 
 // GET all Favorites
-router.get("/", withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
       const favoriteData = await Favorite.findAll();
       res.status(200).json(favoriteData, { loggedIn: req.session.loggedIn });
@@ -13,7 +13,7 @@ router.get("/", withAuth, async (req, res) => {
   });
 
 // Create a new Favorite
-router.post("/", withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     try {
       const newFavorite = await Favorite.create({
         ...req.body,
@@ -59,7 +59,7 @@ router.get('/:id', withAuth, async (req, res) => {
   });
 
 //   Delete a Favorite
-router.delete("/:id", withAuth, async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     try {
       const favoriteData = await Favorite.destroy({
         where: {
@@ -69,7 +69,7 @@ router.delete("/:id", withAuth, async (req, res) => {
       });
   
       if (!favoriteData) {
-        res.status(404).json({ message: "No Favorite found with this id!" });
+        res.status(404).json({ message: 'No Favorite found with this id!'});
         return;
       }
   
