@@ -1,7 +1,8 @@
 const router = require('express').Router();
-const { Launch, Rocket } = require('../models');
+const withAuth = require('../utils/auth');
+const { Launch, Rocket, User } = require('../models');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const dbLaunchData = await Launch.findAll({
       attributes: [
@@ -23,7 +24,7 @@ router.get('/', (req, res) => {
   }
 });
 
-router.get('/launch/:id', (req, res) => {
+router.get('/launch/:id', async (req, res) => {
   try {
     const dbLaunchData = await Launch.findByPk(req.params.id, {
       include: [{ model: Rocket }]
@@ -33,17 +34,25 @@ router.get('/launch/:id', (req, res) => {
       return;
     }
     const launch = dbLaunchData.get({ plain: true });
-    res.render('view-launch', {
-      launch,
-      loggedIn: req.session.loggedIn
-    });
+    res.render('view-launch', { launch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/login', (req, res) => {
+router.get('/saved', withAuth, async (req, res) => {
+  try {
+    const dbUserData = await User.findByPk(req.session.user_id);
+    const user = dbUserData.get({ plan: true });
+    console.log(user)
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
@@ -51,7 +60,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/signup', (req, res) => {
+router.get('/signup', async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
     return;
