@@ -12,7 +12,7 @@ Launch.hasOne(Rocket, {
     foreignKey: "rocket_id"
 });
 
-Rocket.belongsTo(Launch, {
+Rocket.belongsToMany(Launch, {
     foreignKey: "launch_id"
 });
 
