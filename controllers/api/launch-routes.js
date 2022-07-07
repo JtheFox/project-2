@@ -26,14 +26,14 @@ router.get("/", async (req, res) => {
   });
 
 // // POST query launch
-//   router.post('/query/', function (req, res) {
+//   router.post('/search/:query', function (req, res) {
 //     try {
-//       const launchData = await Launch.findByPk(req.params.id);
-//       if (!launchData) {
-//         res.status(404).json({ message: 'No Launch with this id!' });
+//       const search = await Launch.findBy(req.params.query);
+//       if (!search) {
+//         res.status(404).json({ message: 'No search found with this query!' });
 //         return;
 //       }
-//       res.status(200).json(launchData);
+//       res.status(200).json(search);
 //     } catch (err) {
 //       res.status(500).json(err);
 //     }
