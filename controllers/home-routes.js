@@ -3,11 +3,6 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { Launch, Rocket, User } = require('../models');
 
-router.get('/rockets', async (req, res) => {
-  const dbLaunchData = await Rocket.findAll({});
-  res.json(dbLaunchData)
-})
-
 //GET method to get all launches
 router.get('/', async (req, res) => {
   try {
