@@ -1,28 +1,10 @@
 //Import models
 const User = require('./User');
-const Favorite = require('./Favorite');
-const Profile = require('./Profile');
 const Launch = require('./Launch');
 const Rocket = require("./Rocket");
 
 //Relationships between the model 
-User.hasOne(Profile, {
-    foreignKey: "profile_id"
-});
-
 User.hasMany(Launch, {
-    foreignKey: "launch_id"
-});
-
-Profile.belongsTo(User, {
-    foreignKey: "user_id"
-});
-
-Favorite.belongsTo(User, {
-    foreignKey: "user_id"
-});
-
-Favorite.hasMany(Launch, {
     foreignKey: "launch_id"
 });
 
@@ -35,4 +17,4 @@ Rocket.belongsTo(Launch, {
 });
 
 //Export Models 
-module.exports = { User, Favorite, Profile, Launch, Rocket }
+module.exports = { User, Launch, Rocket }
