@@ -15,6 +15,31 @@ router.get('/', async (req, res) => {
     }
 });
 
+//POST method to create a new user 
+router.post("/", async (req, res) => {
+
+    try {
+
+        //Create a new user 
+        const createUser = await User.create({
+            username: req.body.username, 
+            password: req.body.password
+        });
+
+        //Save session the user created 
+        req.session.save(() => {
+            req.session.user_id = createUser.id;
+            req.session.loggedIn = true;
+            res.json(createUser);
+        });
+
+    } catch (err) {
+
+        //Return error if any
+        res.json(err);
+    }
+});
+
 // Login
 router.post('/login', async (req, res) => {
     try {
