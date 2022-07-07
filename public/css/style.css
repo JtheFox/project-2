@@ -156,8 +156,8 @@ main {
     margin-right: 2rem;
 }
 
-/* search page */
-.search-header {
+/* search/favorites page */
+.search-header, .favorites-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -168,5 +168,3 @@ main {
     border-radius: 0.5rem;
     text-align: center;
 }
-
-/* favorites page */
