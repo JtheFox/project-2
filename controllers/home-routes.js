@@ -1,26 +1,18 @@
 //Import required packages and models
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const { Launch, Rocket, User } = require('../models');
+const { Launch, User } = require('../models');
 
 //GET method to get all launches
 router.get('/', async (req, res) => {
   try {
-
     //Find all launch data
     const dbLaunchData = await Launch.findAll({
-      attributes: [
-        'id',
-        'name',
-        'date',
-        'icon',
-        'webcast'
-      ]
+      attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
+      order: [['date', 'DESC']]
     });
-
     //Seralize data
     const launches = dbLaunchData.map(post => post.get({ plain: true }));
-
     //Render the home page
     res.render('homepage', {
       launches,
@@ -35,18 +27,13 @@ router.get('/', async (req, res) => {
 //GET method to show a specific launch when clicked
 router.get('/:id', async (req, res) => {
   try {
-
     //Find the launch by id
-    const dbLaunchData = await Launch.findByPk(req.params.id, {
-      include: [{ model: Rocket }]
-    });
-
+    const dbLaunchData = await Launch.findByPk(req.params.id);
     //If no launch exist, display error
     if (!dbLaunchData) {
       res.status(404).json({ message: 'No launch found with this id' });
       return;
     }
-    
     //Seralize the data
     const launch = dbLaunchData.get({ plain: true });
     console.log(launch);

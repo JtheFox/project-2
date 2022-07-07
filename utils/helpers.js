@@ -4,7 +4,7 @@ module.exports = {
             id: launch.id,
             name: launch.name,
             success: launch.success,
-            date: launch.date_unix,
+            date: launch.date_utc,
             flight_number: launch.flight_number,
             icon: launch.links.patch.large,
             forum: launch.links.reddit.launch,

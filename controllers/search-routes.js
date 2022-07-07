@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Launch, Rocket } = require('../models');
+const { Launch } = require('../models');
 
 //GET method to display the search page
 router.get('/', async (req, res) => {
@@ -11,9 +11,7 @@ router.post('/', async (req, res) => {
     try {
         // check if searching by id or name
         if (/[a-z\d]{24}/.test(req.body.query)) {
-            const dbLaunchData = await Launch.findByPk(req.body.query, {
-                include: [{ model: Rocket }]
-            });
+            const dbLaunchData = await Launch.findByPk(req.body.query);
             if (!dbLaunchData) {
                 res.status(404).json({ message: 'No launch found with this id' });
                 return;

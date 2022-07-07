@@ -42,11 +42,11 @@ Launch.init (
         rocket_id: {
             type: DataTypes.CHAR(24),
             allowNull: false,
-            references: {
-                model: 'rocket',
-                key: 'id'
-            }
         },
+        rocket_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     },
     {
         sequelize,  
