@@ -32,6 +32,14 @@ Rocket.init (
         launch_cost: {
             type: DataTypes.INTEGER, 
         },
+        launch_id: {
+            type: DataTypes.CHAR(24),
+            allowNull: true,
+            references: {
+                model: 'launch',
+                key: 'id'
+            }
+        },
     },
     {
         sequelize, 
