@@ -1,4 +1,9 @@
+const fetch = require('node-fetch');
+
 module.exports = {
+    format_date: (date) => {
+        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear() + 5}`;
+    },
     parseLaunchData: (launch) => {
         return {
             id: launch.id,
@@ -13,7 +18,9 @@ module.exports = {
             rocket_id: launch.rocket
         }
     },
-    parseRocketData: (rocket) => {
+    getRocketData: async (rocketID) => {
+        const response = await fetch(`https://api.spacexdata.com/v4/rockets/${rocketID}`);
+        const rocket = await response.json();
         return {
             id: rocket.id,
             name: rocket.name,
@@ -23,8 +30,5 @@ module.exports = {
             description: rocket.description.substring(0,254),
             launch_cost: rocket.cost_per_launch
         }
-    },
-    format_date: (date) => {
-        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear() + 5}`;
-    },
+    }
 }

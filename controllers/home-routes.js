@@ -1,6 +1,7 @@
 //Import required packages and models
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
+const { getRocketData } = require('../utils/helpers');
 const { Launch, User } = require('../models');
 
 //GET method to get all launches
@@ -36,9 +37,9 @@ router.get('/:id', async (req, res) => {
     }
     //Seralize the data
     const launch = dbLaunchData.get({ plain: true });
-    console.log(launch);
+    const rocket = await getRocketData(launch.rocket_id);
     //Render the launch page
-    res.render('launch-page', { launch, loggedIn: req.session.loggedIn });
+    res.render('launch-page', { launch, rocket, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
