@@ -36,7 +36,7 @@
             <div class="sidebar-group">
                 <p class="sidebar-label">Account</p>
                 {{#if loggedIn}}
-                <a class="sidebar-link" href="/logout">Log Out</a>
+                <a class="sidebar-link" id="logout" href="/logout">Log Out</a>
                 {{else}}
                 <a class="sidebar-link" href="/login">Log In</a>
                 <a class="sidebar-link" href="/signup">Sign Up</a>
@@ -49,7 +49,7 @@
         </section>
     </main>
     {{#if loggedIn}}
-    <script src="./js/logout.js"></script>
+    <script src="/js/logout.js"></script>
     {{/if}}
     <script src="https://kit.fontawesome.com/1b2e971152.js" crossorigin="anonymous"></script>
 </body>
