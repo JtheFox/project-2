@@ -19,12 +19,12 @@ const seedAll = async () => {
   console.log("\n---------- Users Seeded ----------\n");
 
   //Seed the Favorite model
-  // await seedFavorites();
-  // console.log("\n---------- Favorites Seeded ----------\n");
+  await seedFavorites();
+  console.log("\n---------- Favorites Seeded ----------\n");
 
   //Seed the Profile model
-  // await seedProfiles();
-  // console.log("\n---------- Profile Seeded ----------\n");
+  await seedProfiles();
+  console.log("\n---------- Profile Seeded ----------\n");
 
   //Seed the Launch model
   const launchesResponse = await fetch('https://api.spacexdata.com/v5/launches/past');
