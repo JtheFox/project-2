@@ -4,18 +4,17 @@
 
 1. [User Story](#user-story)
 2. [Description](#description)
-3. [Features](#features)
-4. [Technologies Used](#technologies-used)
-5. [APIs](#apis)
-6. [Resources](#resources)
-7. [Visuals](#visuals)
-8. [Installation](#installation)
-9. [Usage](#usage)
+3. [Usage](#usage)
+4. [Installation](#installation)
+5. [Visuals](#visuals)
+6. [Technology Used](#technologies-used)
+8. [API Used](#apis-used)
+9. [Resources](#resources)
 10. [Authors and Acknowledgements](#authors-and-acknowledgements)
 
 ## Description
 
-“BLAST OFF!” Our website is a space launch application that allows users to see the upcoming space launch in the USA. They are able to track the launches in their profile page. The user will not be able to interact with the application unless they have an account or created an account. Once they have done those steps, the user has the ability to comment on a specific launch and add the launch that they want to track to their profile page. 
+“BLAST OFF!” Our website is a space launch application that allows users to see the upcoming space launch in the USA. They are able to track the launches in their profile page. The user will not be able to interact with the application unless they have an account or created an account. Once they have done those steps, the user has the ability to comment on a specific launch and add the launch that they want to track to their profile page.
 
 ## User Story
 
@@ -31,7 +30,13 @@ SO THAT I have a fun and creative way to keep up with upcoming, past shuttle lau
 
 How would a user use this application:
 
-- Step 1: 
+- Step 1: When the user first open the application they are prompt with the home page with navbars. The user can view only the home page with a list of launches. 
+
+- Step 2: User would need to login/signup in order to view more detail about the launch 
+
+- Step 3: Once user login/signup the user can track the launch they want and it will be in the watched section 
+
+- Step 4: When the user click on their profile page, they are allow to edit the home page 
 
 ## Installation
 
@@ -65,16 +70,16 @@ npm i bcrypt connect-session-sequelize dotenv express express-handlebars express
 - Heroku
 - moment.js
 
-## APIs
+## APIs Used
 - SpaceX REST API
 - OpenWeather API
 
 ## Resources
 
-* [GitHub Repository](https://github.com/JtheFox/project-2)
+* [GitHub Repository](https://github.com/JtheFox/blastoff)
 
 * [Heroku](https://INSERT LINK HERE.................)
 
 ## Authors and Acknowledgements
 
-code created & optimized by UNCC Coding Bootcamp Students - Jason Fox, Vanessa Liaw, Graham Purnell and Raymond Dover
+Coded and Develop by Jason Fox, Vanessa Liaw, Graham Purnell and Raymond Dover
