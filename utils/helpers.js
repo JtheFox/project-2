@@ -23,5 +23,8 @@ module.exports = {
             description: rocket.description.substring(0,254),
             launch_cost: rocket.cost_per_launch
         }
-    }
+    },
+    format_date: (date) => {
+        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear() + 5}`;
+    },
 }

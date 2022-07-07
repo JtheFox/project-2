@@ -68,8 +68,8 @@ a {
     align-items: baseline;
     justify-content: space-between;
     padding: 0.75rem 1.25rem;
-    line-height: 1rem;
     border-bottom: 2px solid var(--light);
+    line-height: 1rem;
 }
 
 .layoutHeader h1 {
@@ -139,9 +139,9 @@ main {
 
 /* main content area */
 .layoutContent {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     align-items: center;
     padding-top: 0.5rem;
 }
@@ -150,9 +150,9 @@ main {
 /* launch details */
 .launch-card {
     display: flex;
-    width: 75%;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    width: 50%;
 }
 
 .launch-card:not(:first-of-type) {
@@ -160,9 +160,15 @@ main {
 }
 
 .launch-icon {
-    max-height: 200px;
     width: auto;
+    max-height: 200px;
     margin-right: 2rem;
+}
+
+.launch-details {
+    word-break: keep-all;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* search/favorites page */
