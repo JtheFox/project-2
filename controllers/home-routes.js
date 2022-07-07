@@ -49,7 +49,7 @@ router.get('/launch/:id', async (req, res) => {
 
     //Seralize the data
     const launch = dbLaunchData.get({ plain: true });
-
+    console.log(launch);
     //Render the launch page
     res.render('launch-page', { launch, loggedIn: req.session.loggedIn });
   } catch (err) {
