@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const { Launch, Rocket } = require('../models');
 
-// Search launch by name or id
+//GET method to display the search page
 router.get('/', async (req, res) => {
     res.render('search');
 });
 
+//POST method to be able to search the launches
 router.post('/', async (req, res) => {
     try {
         // check if searching by id or name
@@ -46,4 +47,5 @@ router.post('/', async (req, res) => {
     }
 });
 
+//Export router
 module.exports = router; 
