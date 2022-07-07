@@ -9,13 +9,13 @@ router.post('/login', async (req, res) => {
         });
 
         if (!dbUserData) {
-            res.status(400).json({ message: 'Invalid username or password.' });
+            res.status(400).json({ message: 'Invalid username.' });
             return;
         }
 
-        const validPassword = await dbUserData.checkPassword(req.body.password);
+        const validPassword = dbUserData.checkPassword(req.body.password);
         if (!validPassword) {
-            res.status(400).json({ message: 'Invalid username or password.' });
+            res.status(400).json({ message: 'Invalid password.' });
             return;
         }
 
@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
             req.session.loggedIn = true;
             req.session.user_id = user.id;
             console.log('User Logged In', req.session.cookie);
-            res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
+            res.status(200).json({ message: 'You are now logged in!' });
         });
     } catch (err) {
         console.log(err);
