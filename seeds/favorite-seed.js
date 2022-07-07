@@ -4,7 +4,7 @@ const { Favorite } = require('../models');
 //Create a list of favorite models
 const favoritesData = [
     {
-        "launch_id": 1,
+        "launch_id": 5eb87cd9ffd86e000604b32a,
     },
     {
         "launch_id": 2,
