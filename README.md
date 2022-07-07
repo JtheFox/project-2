@@ -15,11 +15,21 @@
 
 
 ## User Story
+```
 AS A user who needs information on Space launches,
 
 I WANT to set up a profile that provides customized launch information fields,
 
 SO THAT I have a fun and creative way to keep up with upcoming, past shuttle launches and more.
+```
+
+## Usage
+- npm install 
+- 
+- 
+- 
+- 
+- 
 
 ## Description
 
@@ -64,14 +74,6 @@ SO THAT I have a fun and creative way to keep up with upcoming, past shuttle lau
 ## Installation
 - Download through GitHub Repository
 - Open Project Directory, then install the required dependencies
-
-## Usage
-- npm install 
-- 
-- 
-- 
-- 
-- 
 
 ## Authors and Acknowledgements
 
