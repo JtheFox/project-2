@@ -16,7 +16,7 @@
 
 <body>
     <header class="layoutHeader">
-        <h1 class="title is-1">Blastoff</h1>
+        <h1 class="title is-1">Blastoff <i class="fa-solid fa-rocket"></i></h1>
         <div class="nextLaunch is-flex is-flex-wrap-wrap title is-2">
             <p>Next Launch:</p>
             <a class="title-link" href="#">{{nextLaunchDate}}</a>
@@ -28,10 +28,10 @@
             <div class="sidebar-group">
                 <p class="sidebar-label">Navigation</p>
                 <a class="sidebar-link" href="#">Home</a>
-                {{#if loggedIn}}
                 <a class="sidebar-link" href="#">Search</a>
+                {{#if loggedIn}}
+                <a class="sidebar-link" href="#">Favorites</a>
                 {{/if}}
-                <a class="sidebar-link" href="#">Saved</a>
             </div>
             <div class="sidebar-group">
                 <p class="sidebar-label">Account</p>

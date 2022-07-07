@@ -1,0 +1,8 @@
+<div class="search-header">
+    <h2 class="is-size-1 search-title">Search</h2>
+    <p class="is-size-5">Search for a launch by name</p>
+    <input type="text" class="search-bar is-size-3">
+</div>
+{{#each launches as |launch|}}
+{{> launch-details}}
+{{/each}}
