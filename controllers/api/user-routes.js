@@ -1,6 +1,20 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// GET users by id
+router.get('/', async (req, res) => {
+    try {
+        const dbUserData = await User.findAll({
+            attributes: { exclude: ['password'] }
+        });
+        if (dbUserData) res.status(200).json({dbUserData});
+        else res.status(404).json({ message: 'No user found with this id' });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 // Login
 router.post('/login', async (req, res) => {
     try {
