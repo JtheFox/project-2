@@ -2,6 +2,8 @@
 // const seedUsers = require('./user-seed');
 const seedLaunches = require('./launch-seed');
 const seedComments = require("./comment-seed");
+const seedUsers = require("./user-seed");
+
 const sequelize = require('../config/connection');
 const fetch = require('node-fetch');
 const { parseLaunchData } = require('../utils/helpers');
@@ -38,8 +40,11 @@ const seedAll = async () => {
     await seedLaunches(launchData);
     console.log("\n---------- LAUNCHES SEEDED ----------\n");
 
+    await seedUsers();
+    console.log("\n---------- USERS SEEDED ----------\n");
+    
     await seedComments();
-    console.log("\n---------- Comments SEEDED ----------\n");
+    console.log("\n---------- COMMENTS SEEDED ----------\n");
 
     process.exit();
   } catch (err) {
