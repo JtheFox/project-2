@@ -33,10 +33,17 @@ Comment.init (
             type: DataTypes.CHAR(24),
             allowNull: false,
             references: {
-                model: "post",
+                model: "launch",
                 key: "id"
             }
         }
+    },
+    {
+        //Create rules for Comment Model
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: "comment"
     }
 );
 
