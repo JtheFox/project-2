@@ -103,6 +103,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: end;
+    min-width: 175px;
     width: 175px;
     padding: 1.5rem 0;
     border-right: 2px solid var(--light);
@@ -111,6 +112,10 @@ main {
 .sidebar :is(a, p) {
     width: 100%;
     text-align: end;
+}
+
+.sidebar a:hover {
+    color: #222 !important
 }
 
 .sidebar-group {
