@@ -91,9 +91,6 @@ a:hover {
 /* header bar for main page layout */
 .layoutHeader {
     display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    justify-content: space-between;
     padding: 0.75rem 1.25rem;
     border-bottom: 2px solid var(--light);
     line-height: 1rem;
@@ -106,6 +103,14 @@ a:hover {
 
 .layoutHeader .title {
     color: var(--light) !important;
+}
+
+.headerContent {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
 .nextLaunch {
@@ -128,13 +133,14 @@ main {
     display: flex;
     flex-direction: column;
     align-items: end;
-    width: 175px;
-    min-width: 175px;
+    width: 250px;
+    min-width: 250px;
     padding: 1.5rem 0;
     border-right: 2px solid var(--light);
 }
 
 .sidebar :is(a, p) {
+    font-size: 2rem;
     width: 100%;
     text-align: end;
 }
@@ -222,7 +228,7 @@ main {
 }
 
 .searchBox {
-    margin: 0.5rem auto
+    margin: 0.5rem auto;
 }
 
 .search-bar {
@@ -318,15 +324,15 @@ main {
 }
 
 .commentBox {
-    margin: 0 auto 4rem;
-    width: 50%;
     display: flex;
     align-items: center;
+    width: 50%;
+    margin: 0 auto 4rem;
 }
 
 #commentText {
-    height: 100%;
     width: 100%;
+    height: 100%;
     padding: 0.15rem 0.5rem;
 }
 
@@ -335,21 +341,128 @@ main {
 }
 
 .comment-card {
-    margin-left: 15%;
     margin-bottom: 2rem;
+    margin-left: 15%;
 }
 
 .comment-card .title {
     margin-bottom: 0.25rem;
 }
 
+/* hamburger menu button */
+.headerBtn {
+    display: none;
+    margin-top: auto;
+    margin-right: 1.25rem;
+}
+
 /* medium devices and below */
-@media only screen and (max-width: 968px) {
-    .sidebar {
-       margin-left: -175px;
+@media only screen and (max-width: 992px) {
+    /* hamburger menu button */
+    .headerBtn {
+        display: block;
     }
 
+    /* sidebar */
+    .sidebar {
+        min-width: 100vw;
+        border: none;
+    }
+
+    .sidebar :is(a, p) {
+        font-size: 3rem !important;
+        text-align: center;
+    }
+    
+    .sidebar:not(.show) {
+        margin-left: -100vw;
+        transition: 0.3s ease-in-out;
+    }
+
+    .sidebar.show {
+        margin-left: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* launch details */
     .launch-card {
         margin-left: 10%;
     }
+}
+
+/* small devices and below */
+@media only screen and (max-width: 768px) {
+    /* header */
+    .layoutHeader :is(p, a) {
+        font-size: 2rem;
+    }
+
+    .layoutHeader :is(h1, i) {
+        font-size: 2.5rem !important;
+    }
+
+    /* sidebar */
+    .sidebar {
+        min-width: 100vw;
+        border: none;
+    }
+
+    .sidebar :is(a, p) {
+        font-size: 1.75rem !important;
+    }
+    
+    /* launch details */
+    .launch-card {
+        margin-left: 10%;
+    }
+}
+
+/* extra small devices */
+@media only screen and (max-width: 600px) {
+    :root {
+        font-size: 0.7rem;
+    }
+
+    /* header */
+    h1 {
+        padding: 0 !important;
+    }
+
+    .headerBtn {
+        margin-right: 1.75rem;
+    }
+
+    .headerBtn i {
+        font-size: 4rem !important;
+    }
+
+    /* launch details */
+    .launch-card {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 2%;
+    }
+
+    .launch-icon {
+        width: 125px;
+        min-width: 125px;
+        height: 125px;
+        margin-right: 2rem;
+    }
+
+    .launch-link {
+        font-size: 1.75rem !important;
+    }
+    
+    .launch-details {
+        overflow: hidden;
+        white-space: nowrap;
+        word-break: keep-all;
+        text-overflow: ellipsis;
+    }
+
+    .launch-details :is(i, a, p):not(.launch-link) {
+        font-size: 1.5rem !important;
+    }   
 }
