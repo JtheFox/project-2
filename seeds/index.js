@@ -38,7 +38,7 @@ const seedAll = async () => {
     await seedLaunches(launchData);
     console.log("\n---------- LAUNCHES SEEDED ----------\n");
 
-    await seedComment();
+    await seedComments();
     console.log("\n---------- Comments SEEDED ----------\n");
 
     process.exit();
