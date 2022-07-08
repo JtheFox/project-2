@@ -4,12 +4,14 @@ const withAuth = require('../utils/auth');
 const { getRocketData, getNextLaunch } = require('../utils/helpers');
 const { Launch, User, Comment } = require('../models');
 
+
 //GET method to get all launches
 router.get('/', async (req, res) => {
   try {
     const nextLaunch = await getNextLaunch();
     //Find all launch data
     const dbLaunchData = await Launch.findAll({
+      limit: 50,
       attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
       order: [['date', 'DESC']]
     });
