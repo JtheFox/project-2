@@ -17,12 +17,12 @@ User.hasMany(Comment, {
     foreignKey: 'user_id',
 });
 
-Comment.belongsTo(User, {
-    foreignKey: 'user_id',
-});
-
 Comment.belongsTo(Launch, {
     foreignKey: 'launch_id',
+});
+
+Comment.belongsTo(User, {
+    foreignKey: 'user_id',
 });
 
 //Export Models 
