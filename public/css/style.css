@@ -238,12 +238,13 @@ main {
     margin: auto;
 }
 
-.rocket-tile :is(.content, img):not(:first-child) {
+.rocket-tile .content:not(:first-child) {
     margin-top: 0.5rem !important;
     line-height: 1.75rem;
 }
 
 .rocket-img {
     object-fit: cover;
+    margin: auto !important;
     border-radius: 0.5rem;
 }
