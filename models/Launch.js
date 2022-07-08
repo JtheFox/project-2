@@ -2,7 +2,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-//Initialize Favorite model by extending off Sequelize's Model Class
+//Initialize Launch model by extending off Sequelize's Model Class
 class Launch extends Model { };
 
 //Set up fields and rules for Launch model 
