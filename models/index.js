@@ -10,7 +10,7 @@ User.hasMany(Launch, {
 });
 
 Launch.hasMany(Comment, {
-    foreignKey: 'user_id',
+    foreignKey: 'launch_id',
 });
 
 User.hasMany(Comment, {
