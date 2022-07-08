@@ -14,14 +14,14 @@
 
 ## Description
 
-“BLAST OFF!” Our website is a space launch application that allows users to see the upcoming space launch in the USA. They are able to track the launches in their profile page. The user will not be able to interact with the application unless they have an account or created an account. Once they have done those steps, the user has the ability to comment on a specific launch and add the launch that they want to track to their profile page.
+“BLAST OFF!” Our website is a space launch application that allows users to see the upcoming space launch in the USA. The user will not be able to interact with the application unless they have an account or created an account. Once they have done those steps, the user has the ability to add a launch to the favorite page and track it on the favorite page instead of searching it or looking for it again. 
 
 ## User Story
 
 ```
 AS A user who needs information on Space launches,
 
-I WANT to set up a profile that provides customized launch information fields,
+I WANT to be able to see information about the launch details that is upcoming,
 
 SO THAT I have a fun and creative way to keep up with upcoming, past shuttle launches and more.
 ```
@@ -49,13 +49,10 @@ npm i bcrypt connect-session-sequelize dotenv express express-handlebars express
 ## Visuals
 
 ## Features
-- Have to login/signup in order to interactive with the website
-- Ability to track the launch in the profile page
-- Directions to launch
-- View and edit profile page
-- Add comment to upcoming launch
+
+- Have to login/signup in order to interact with the website
+- Ability to track the launches their interested in, located at the favorite page
 - Use API to get the upcoming launch
-- Use API to get the upcoming launch weather
 
 ## Technologies Used
 - GitHub
@@ -68,11 +65,9 @@ npm i bcrypt connect-session-sequelize dotenv express express-handlebars express
 - MySQL
 - Sequelize
 - Heroku
-- moment.js
 
 ## APIs Used
 - SpaceX REST API
-- OpenWeather API
 
 ## Resources
 
