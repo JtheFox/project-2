@@ -325,3 +325,8 @@ main {
 .comment-card .title {
     margin-bottom: 0.25rem;
 }
+
+/* medium devices and below */
+@media only screen and (max-width: 768px) {
+    
+}
