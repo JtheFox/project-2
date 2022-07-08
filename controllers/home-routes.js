@@ -61,14 +61,16 @@ router.get('/launch/:id', withAuth, async (req, res) => {
 
 //GET method to saved the user choice of launches
 router.get('/saved', withAuth, async (req, res) => {
-  try {
-    const dbUserData = await User.findByPk(req.session.user_id);
-    const user = dbUserData.get({ plan: true });
-    console.log(user);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+  const nextLaunch = await getNextLaunch();
+  // try {
+  //   const dbUserData = await User.findByPk(req.session.user_id);
+  //   const user = dbUserData.get({ plan: true });
+  //   console.log(user);
+  // } catch (err) {
+  //   console.log(err);
+  //   res.status(500).json(err);
+  // }
+  res.render('view-saved', { nextLaunch, loggedIn: req.session.loggedIn });
 });
 
 //GET method to logged in the user
