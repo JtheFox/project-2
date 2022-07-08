@@ -278,12 +278,12 @@ main {
     flex-direction: column;
 }
 
-.comments .title {
+.comments > .title {
     text-align: center;
 }
 
 .commentBox {
-    margin: 0 auto;
+    margin: 0 auto 4rem;
     display: flex;
     align-items: center;
 }
@@ -296,3 +296,10 @@ main {
     height: 100%;
 }
 
+.comment-card {
+    margin-left: 10%;
+}
+
+.comment-card .title {
+    margin-bottom: 0.25rem;
+}
