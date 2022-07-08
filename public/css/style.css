@@ -302,11 +302,14 @@ main {
 
 .commentBox {
     margin: 0 auto 4rem;
+    width: 50%;
     display: flex;
     align-items: center;
 }
 
 #commentText {
+    height: 100%;
+    width: 100%;
     padding: 0.15rem 0.5rem;
 }
 
@@ -315,7 +318,7 @@ main {
 }
 
 .comment-card {
-    margin-left: 10%;
+    margin-left: 15%;
     margin-bottom: 2rem;
 }
 

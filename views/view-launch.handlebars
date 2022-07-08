@@ -50,8 +50,8 @@
 <div class="comments">
     <p class="title">Comments</p>
     <div class="commentBox">
-        <textarea class="is-size-5" id="commentText" cols="50" rows="2"></textarea>
-        <button class="is-size-4" id="postComment">Submit</button>
+        <input type="text" class="is-size-5" id="commentText"></input>
+        <button class="button is-success" id="postComment">Submit</button>
     </div>
     {{#each launch.comments as |comment|}}
     {{> comment-details}}
