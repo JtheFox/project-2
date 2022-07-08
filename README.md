@@ -52,11 +52,11 @@ This is the home page of our web application
 
 ![Homepage of Blastoff](./public/images/homepage.png)
 
-This is what the user see when a launch is clicked 
+This is what the user will see when a launch is clicked 
 
 ![A single launch display](./public/images/launch.png)
 
-This is the comments section will user can comment on a launch
+This is the comments section where a user can comment on a launch
 
 ![Comment of a launch](./public/images/launch.png)
 
