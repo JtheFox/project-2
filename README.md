@@ -14,7 +14,7 @@
 
 ## Description
 
-“BLAST OFF!” Our website is a space launch application that allows users to see the upcoming space launch in the USA. The user will not be able to interact with the application unless they have an account or created an account. Once they have done those steps, the user has the ability to add a launch to the favorite page and track it on the favorite page instead of searching it or looking for it again. 
+Our website is a space launch application that allows users to see the upcoming space launches from SpaceX. The user will not be able to interact with the application unless they have an account or created an account. Once login/signup is complete, the user gains the ability to add comments about any launch. 
 
 ## User Story
 
