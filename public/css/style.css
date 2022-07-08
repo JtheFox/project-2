@@ -271,3 +271,28 @@ main {
 .launch-tile iframe {
     min-height: 500px;
 }
+
+/* comments section */
+.comments {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments .title {
+    text-align: center;
+}
+
+.commentBox {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+#commentText {
+    padding: 0.15rem 0.5rem;
+}
+
+#postComment {
+    height: 100%;
+}
+
