@@ -344,6 +344,12 @@ main {
 }
 
 /* medium devices and below */
-@media only screen and (max-width: 768px) {
-    
+@media only screen and (max-width: 968px) {
+    .sidebar {
+       margin-left: -175px;
+    }
+
+    .launch-card {
+        margin-left: 10%;
+    }
 }
