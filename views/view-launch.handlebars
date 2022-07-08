@@ -3,7 +3,11 @@
         <div class="tile">
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child launch-tile">
-                    <p class="title">{{launch.name}}</p>
+                    <div class="title-box">
+                        <p class="title">{{launch.name}}</p>
+                        <i class="fa-regular fa-star title toSavedBtn" id="addToSaved"></i>
+                        <i class="fa-solid fa-star toSavedBtn" style="display:none"></i>
+                    </div>
                     <p class="content is-size-4">Date: {{format_date launch.date}}</p>
                     <p class="content is-size-4">Flight&nbsp;Number:&nbsp;{{launch.flight_number}}</p>
                     <p class="content is-size-4">Status:&nbsp;

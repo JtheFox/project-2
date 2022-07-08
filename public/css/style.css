@@ -30,8 +30,12 @@ body {
   background-color: darkgrey;
 }
 
-.title {
+:is(a, p).title {
     color: var(--light) !important;
+}
+
+i.title {
+    margin-bottom: 0 !important;
 }
 
 a {
@@ -247,7 +251,7 @@ main {
     padding: 1rem;
 }
 
-.tile .title {
+.tile :is(a, p).title {
     color: black !important;
 }
 
@@ -261,6 +265,15 @@ main {
 
 .launch-tile a {
     text-decoration: none !important;
+}
+
+.title-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-star {
+    color: rgb(255, 166, 0);
 }
 
 .fa-check {
