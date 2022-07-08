@@ -53,7 +53,7 @@
         <textarea class="is-size-5" id="commentText" cols="50" rows="2"></textarea>
         <button class="is-size-4" id="postComment">Submit</button>
     </div>
-    {{#each post.comments as |comment|}}
+    {{#each launch.comments as |comment|}}
     {{> comment-details}}
     {{/each}}
 </div>
