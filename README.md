@@ -48,13 +48,26 @@ npm i bcrypt connect-session-sequelize dotenv express express-handlebars express
 
 ## Visuals
 
+This is the home page of our web application 
+
+![Homepage of Blastoff](./public/images/homepage.png)
+
+This is what the user see when a launch is clicked 
+
+![A single launch display](./public/images/launch.png)
+
+This is the comments section will user can comment on a launch
+
+![Comment of a launch](./public/images/launch.png)
+
 ## Features
 
 - Have to login/signup in order to interact with the website
-- Ability to track the launches their interested in, located at the favorite page
+- Ability to add comments on a launch
 - Use API to get the upcoming launch
 
 ## Technologies Used
+
 - GitHub
 - VSCode
 - HTML5
@@ -67,13 +80,14 @@ npm i bcrypt connect-session-sequelize dotenv express express-handlebars express
 - Heroku
 
 ## APIs Used
+
 - SpaceX REST API
 
 ## Resources
 
 * [GitHub Repository](https://github.com/JtheFox/blastoff)
 
-* [Heroku](https://INSERT LINK HERE.................)
+* [Heroku](https://blastoff2.herokuapp.com/)
 
 ## Authors and Acknowledgements
 
