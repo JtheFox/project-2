@@ -1,6 +1,8 @@
+//Add the post to the dashboard
 const noResultsMsg = 'No Results Found.';
 const $ = (sel) => document.querySelector(sel);
 
+// Search Handler
 const searchHandler = async () => {
     const response = await fetch('/search', {
         method: 'POST',
@@ -18,4 +20,5 @@ const searchHandler = async () => {
     }
 }
 
+//Grab the selector for search and call the function 
 $('#postSearch').addEventListener('click', searchHandler);

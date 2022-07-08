@@ -1,4 +1,6 @@
+//Add the post to the dashboard
 const logout = async (event) => {
+  //Prevent any default action from happening 
   event.preventDefault();
   const response = await fetch('/api/users/logout', {
     method: 'POST',
@@ -12,6 +14,7 @@ const logout = async (event) => {
   }
 };
 
+//Grab the selector for logout and call the function 
 document
   .querySelector('#logout')
   .addEventListener('click', logout);
