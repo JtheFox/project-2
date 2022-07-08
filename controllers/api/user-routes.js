@@ -5,6 +5,7 @@ const { User, Comment } = require('../../models');
 router.get('/', async (req, res) => {
     try {
         //Find all user  
+        // TODO: Include Launch model in user query to check if launches are saving to the user
         const dbUserData = await User.findAll({
             attributes: { exclude: ['password'] },
             include: [
@@ -22,6 +23,8 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// TODO: create POST route to add launch to a user's saved launches
 
 //POST method to create a new user 
 router.post("/", async (req, res) => {
