@@ -1,13 +1,14 @@
 <div class="search-header level">
-    <h2 class="is-size-1 search-title is-level">Search</h2>
-    <p class="is-size-5 is-level">Search for a launch by name</p>
-    <div>
-        <input type="text" class="search-bar is-size-3 is-level">
-        <div class="buttons is-centered is-level">
-            <button type="submit" id="search" class="button is-success is-level mt-2">Search</button>
-        </div>
+    <h2 class="is-size-1 search-title ">Search</h2>
+    <p class="is-size-5 ">Search for a launch by name</p>
+    <div class="searchBox">
+        <input type="text" class="search-bar is-size-3">
+        <button id="postSearch" class="button is-success">Search</button>
     </div>
 </div>
+</div>
+<div class="is-size-3 noResults"></div>
 {{#each launches as |launch|}}
 {{> launch-details}}
 {{/each}}
+<script src="/js/search.js"></script>

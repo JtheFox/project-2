@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
 
 //POST method to be able to search the launches
 router.post('/', async (req, res) => {
+    console.log('Searching for', req.body.query)
     try {
         const nextLaunch = await getNextLaunch();
         // check if searching by id or name
