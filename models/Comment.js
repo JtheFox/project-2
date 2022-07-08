@@ -30,12 +30,14 @@ Comment.init (
             }
         },
         launch_id: {
-            type: DataTypes.CHAR(24),
+            type: DataTypes.STRING,
+            validate: { is: /^[0-9a-f]{24}$/i },
             allowNull: false,
             references: {
                 model: "launch",
                 key: "id"
             }
+            
         }
     },
     {

@@ -80,8 +80,7 @@ router.post('/login', async (req, res) => {
 
 //POST method to logout a user
 router.post('/logout', async (req, res) => {
-    if (req.session.loggedIn) req.session.destroy(() => res.status(204).end());
-    else res.status(404).end();
+    req.session.loggedIn ? req.session.destroy(() => res.status(204).end()) : res.status(404).end();
 });
 
 //Export router

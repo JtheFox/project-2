@@ -3,18 +3,20 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 //Initialize Favorite model by extending off Sequelize's Model Class
-class Launch extends Model {};
+class Launch extends Model { };
 
 //Set up fields and rules for Launch model 
-Launch.init ( 
+Launch.init(
     {
         id: {
-            type: DataTypes.CHAR(24),
+            type: DataTypes.STRING,
+            validate: { is: /^[0-9a-f]{24}$/i },
             allowNull: false,
-            primaryKey: true
+            unique: true,
+            primaryKey: true,
         },
         name: {
-            type: DataTypes.STRING, 
+            type: DataTypes.STRING,
             allowNull: false
         },
         success: {
@@ -31,16 +33,17 @@ Launch.init (
             type: DataTypes.STRING,
         },
         forum: {
-            type: DataTypes.STRING, 
+            type: DataTypes.STRING,
         },
-        webcast:  {
-            type: DataTypes.STRING, 
+        webcast: {
+            type: DataTypes.STRING,
         },
         wiki: {
             type: DataTypes.STRING,
         },
         rocket_id: {
-            type: DataTypes.CHAR(24),
+            type: DataTypes.STRING,
+            validate: { is: /^[0-9a-f]{24}$/i },
             allowNull: false,
         },
         rocket_name: {
@@ -49,9 +52,9 @@ Launch.init (
         }
     },
     {
-        sequelize,  
-        freezeTableName: true, 
-        underscored: true, 
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
         modelName: 'launch'
     }
 );
