@@ -28,4 +28,4 @@ const commentHandler = async (event) => {
 };
 
 //Grab the selector for button and call the function 
-document.querySelector("#postComment").addEventListener("submit", commentHandler);
+document.querySelector("#postComment").addEventListener("click", commentHandler);
