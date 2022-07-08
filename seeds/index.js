@@ -49,6 +49,7 @@ const seedAll = async () => {
     process.exit();
   } catch (err) {
     console.log('Error encountered while seeding');
+    console.log(err);
     process.exit();
   }
 };

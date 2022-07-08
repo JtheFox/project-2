@@ -14,7 +14,7 @@ module.exports = {
     },
     parseLaunchData: (launch) => {
         return {
-            id: launch.id,
+            launch_id: launch.id,
             name: launch.name,
             success: launch.success,
             date: launch.date_utc,
