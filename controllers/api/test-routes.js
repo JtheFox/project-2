@@ -2,6 +2,7 @@
 const router = require('express').Router();
 const { Launch, User, Comment } = require('../../models');
 
+//GET method to get launch
 router.get('/launches', async (req, res) => {
     const dbLaunchData = await Launch.findAll({
         attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
@@ -19,4 +20,5 @@ router.get('/launches', async (req, res) => {
     res.json(dbLaunchData);
 });
 
+//Export router
 module.exports = router;
