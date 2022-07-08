@@ -42,7 +42,7 @@ router.get('/launch/:id', async (req, res) => {
     const launch = dbLaunchData.get({ plain: true });
     const rocket = await getRocketData(launch.rocket_id);
     //Render the launch page
-    res.render('launch-page', { launch, rocket, nextLaunch, loggedIn: req.session.loggedIn });
+    res.render('view-launch', { launch, rocket, nextLaunch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

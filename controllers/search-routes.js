@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
                 return;
             }
             const launch = dbLaunchData.get({ plain: true });
-            res.render('launch-page', { launch, nextLaunch, loggedIn: req.session.loggedIn });
+            res.render('view-launch', { launch, nextLaunch, loggedIn: req.session.loggedIn });
         } else {
             const dbLaunchData = await Launch.findAll({
                 where: {
