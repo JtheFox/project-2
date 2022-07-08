@@ -104,6 +104,10 @@ a:hover {
     padding-top: 1rem;
 }
 
+.layoutHeader .title {
+    color: var(--light) !important;
+}
+
 .nextLaunch {
     display: flex;
     flex-wrap: wrap;
