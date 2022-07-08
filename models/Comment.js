@@ -2,7 +2,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-//Initialize User model (table) by extending off Sequelize's Model Class
+//Initialize Comment model (table) by extending off Sequelize's Model Class
 class Comment extends Model {};
 
 //Set up fields and rules for Comment model 

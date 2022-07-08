@@ -1,6 +1,8 @@
+//Add the post to the dashboard
 const favoriteAddHandler = async () => {
+    // Add favorite button
     const addFavoriteBtn = document.querySelector();
-
+    
     if (addFavoriteBtn) {
         const launch_id = document.location.pathname.split('/').at(-1);
         const response = await fetch('/api/favorites', {
@@ -15,6 +17,7 @@ const favoriteAddHandler = async () => {
     }
 }
 
+// Remove favorite button
 const favoriteRemoveHandler = async () => {
     const removeFavoriteBtn = document.querySelector();
 
@@ -33,6 +36,7 @@ const favoriteRemoveHandler = async () => {
 }
 
 // TODO: change query selectors
+//Grab the selector for favorite and call the function 
 document
     .querySelector('#login-form')
     .addEventListener('click', favoriteAddHandler);
