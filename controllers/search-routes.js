@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
                 }
             });
             if (!dbLaunchData) {
-                res.status(404).json({ message: 'No launch found matching this name!' });
+                res.status(404).json({ message: 'No results found.' });
                 return;
             }
             const launches = dbLaunchData.map(post => post.get({ plain: true }));
