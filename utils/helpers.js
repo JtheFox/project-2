@@ -4,6 +4,9 @@ module.exports = {
     format_date: (date) => {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
     },
+    format_cost: (cost) => {
+        return `$${new Intl.NumberFormat({ currency: 'USD' }).format(cost)}`;
+    },
     getNextLaunch: async () => {
         const response = await fetch('https://api.spacexdata.com/v5/launches/next');
         const nextLaunch = await response.json();

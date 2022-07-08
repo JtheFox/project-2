@@ -21,9 +21,9 @@
                     <p class="title">Links</p>
                     <a class="content is-size-3" href="{{launch.forum}}"><i class="fa-brands fa-reddit-alien"></i>
                         Launch Discussion</a>
-                    <a class="content is-size-3" href="{{launch.forum}}"><i class="fa-brands fa-youtube"></i>
+                    <a class="content is-size-3" href="{{launch.webcast}}"><i class="fa-brands fa-youtube"></i>
                         Webcast</a>
-                    <a class="content is-size-3" href="{{launch.forum}}"><i class="fa-brands fa-wikipedia-w"></i>
+                    <a class="content is-size-3" href="{{launch.wiki}}"><i class="fa-brands fa-wikipedia-w"></i>
                         Wikipedia</a>
                 </article>
             </div>
@@ -41,7 +41,7 @@
         <article class="tile is-child notification launch-tile rocket-tile">
             <a class="title title-link" href="{{rocket.wiki}}">{{rocket.name}}</a>
             <p class="content is-size-4">First Flight:&nbsp;{{format_date rocket.first_flight}}</p>
-            <p class="content is-size-4">Launch Cost:&nbsp;{{rocket.launch_cost}}</p>
+            <p class="content is-size-4">Launch Cost:&nbsp;{{format_cost rocket.launch_cost}}</p>
             <p class="content is-size-4">{{rocket.description}}</p>
             <img src="{{rocket.image}}" alt="Image of {{rocket.name}}" class="rocket-img">
         </article>
