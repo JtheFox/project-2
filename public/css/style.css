@@ -13,8 +13,20 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
     color: var(--light);
+}
+
+body::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  outline: 1px solid slategrey;
+  background-color: darkgrey;
 }
 
 .title {
@@ -35,8 +47,8 @@ a:hover {
 }
 
 .page-title {
-    text-align: center;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 /* login/signup pages */
@@ -103,8 +115,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: end;
-    min-width: 175px;
     width: 175px;
+    min-width: 175px;
     padding: 1.5rem 0;
     border-right: 2px solid var(--light);
 }
@@ -115,7 +127,7 @@ main {
 }
 
 .sidebar a:hover {
-    color: #222 !important
+    color: #222 !important;
 }
 
 .sidebar-group {
@@ -151,9 +163,17 @@ main {
 /* main content area */
 .layoutContent {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    flex-grow: 1;
     padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.contentBox {
+    display: flex;
+    flex-direction: column;
+    min-height: min-content; /* needs vendor prefixes */
 }
 
 /* home page */
@@ -170,15 +190,15 @@ main {
 }
 
 .launch-icon {
-    height: 200px;
     width: 200px;
+    height: 200px;
     margin-right: 2rem;
 }
 
 .launch-details {
-    word-break: keep-all;
     overflow: hidden;
     white-space: nowrap;
+    word-break: keep-all;
 }
 
 /* search/favorites page */
@@ -205,9 +225,9 @@ main {
 }
 
 .tile.is-child {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
 }
 
 .tile .title {
@@ -244,7 +264,7 @@ main {
 }
 
 .rocket-img {
-    object-fit: cover;
     margin: auto !important;
+    object-fit: cover;
     border-radius: 0.5rem;
 }
