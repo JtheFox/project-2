@@ -7,8 +7,8 @@ const withAuth = require("../../utils/auth");
 // get comments
 router.get('/', async (req, res) => {
     try {
-        const findComment = await Comment.findAll()
-            res.json(findComment);
+        const findComment = await Comment.findAll();
+        res.json(findComment);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -22,7 +22,7 @@ router.post('/', withAuth, async (req, res) => {
             user_id: req.session.user_id,
             launch_id: req.body.launch_id
         })
-            res.json(createComment);
+        res.json(createComment);
     } catch (err) {
         res.status(500).json(err);
     }

@@ -32,7 +32,7 @@ router.get('/launch/:id', async (req, res) => {
   try {
     const nextLaunch = await getNextLaunch();
     //Find the launch by id
-    const dbLaunchData = await Launch.findByPk(req.params.id);
+    const dbLaunchData = await Launch.findByPk(req.params.id, inc);
     //If no launch exist, display error
     if (!dbLaunchData) {
       res.status(404).json({ message: 'No launch found with this id' });
