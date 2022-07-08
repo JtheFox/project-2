@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content is-size-4="IE=edge">
+    <meta name="viewport" content is-size-4="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="../public/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../public/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../public/favicon/favicon-16x16.png">
@@ -39,7 +39,7 @@
             </div>
         </aside>
 
-        <!-- <section class="layoutContent">
+        <!-- <section class="layoutContent is-size-4">
             <h2 class="is-size-1 page-title">Launches</h2>
             <article class="launch-card">
                 <a href="#" class="launch-link"><img src="https://i.imgur.com/F6xKxnI.png" alt="Patch" class="launch-icon"></a>
@@ -94,27 +94,27 @@
             <div class="tile is-vertical is-8">
                 <div class="tile">
                     <div class="tile is-parent is-vertical">
-                        <article class="tile is-child notification has-background-success-dark">
+                        <article class="tile is-child notification launch-tile">
                             <p class="title">Launch name</p>
                             <p class="subtitle">launch time / success: launch.success</p>
                         </article>
-                        <article class="tile is-child notification has-background-success-dark">
+                        <article class="tile is-child notification launch-tile">
                             <p class="title">Links</p>
                             <p class="subtitle">all links</p>
                         </article>
                     </div>
                     <div class="tile is-parent">
-                        <article class="tile is-child notification has-background-success-dark">
+                        <article class="tile is-child notification launch-tile">
                             <p class="title">Launch Cost</p>
                             <p class="subtitle">launch_cost: rocket.cost_per_launch</p>
                         </article>
                     </div>
                 </div>
                 <div class="tile is-parent">
-                    <article class="tile is-child notification has-background-success-dark">
+                    <article class="tile is-child notification launch-tile">
                         <p class="title">Youtube Viewport</p>
                         <p class="subtitle">launch video</p>
-                        <div class="content">
+                        <div class="content is-size-4">
                             <figure class="image is-4by3">
                                 <img src="https://bulma.io/images/placeholders/640x480.png">
                             </figure>
@@ -123,17 +123,64 @@
                 </div>
             </div>
             <div class="tile is-parent">
-                <article class="tile is-child notification has-background-success-dark">
-                    <div class="content">
+                <article class="tile is-child notification launch-tile">
+                    <div class="content is-size-4">
                         <p class="title">Launch Info</p>
                         <p class="subtitle">(payloads, rocket, & crew)</p>
-                        <div class="content">
+                        <div class="content is-size-4">
                             <p>(payloads, rocket, & crew)</p>
                         </div>
                     </div>
                 </article>
             </div>
         </div> -->
+
+        <div class="tile is-ancestor">
+            <div class="tile is-vertical is-8">
+                <div class="tile">
+                    <div class="tile is-parent is-vertical">
+                        <article class="tile is-child launch-tile">
+                            <p class="title">{{launch.name}}</p>
+                            <p class="content is-size-4">Date: {{launch.date}}</p>
+                            <p class="content is-size-4">Flight&nbsp;No.:&nbsp;{{launch.flight_number}}</p>
+                            <p class="content is-size-4">Status:&nbsp;
+                                <i class="fa-solid fa-check"></i>
+                                <i class="fa-solid fa-x"></i>
+                            </p>
+                            <img src="{{launch.icon}}" alt="{{launch.name}} Patch" class="launch-icon tile-icon">
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child notification launch-tile launch-links">
+                            <p class="title">Links</p>
+                            <a class="content is-size-3" href="{{launch.forum}}"><i
+                                    class="fa-brands fa-reddit-alien"></i> Launch Discussion</a>
+                            <a class="content is-size-3" href="{{launch.forum}}"><i class="fa-brands fa-youtube"></i>
+                                Webcast</a>
+                            <a class="content is-size-3" href="{{launch.forum}}"><i
+                                    class="fa-brands fa-wikipedia-w"></i> Wikipedia</a>
+                        </article>
+                    </div>
+                </div>
+                <div class="tile is-parent">
+                    <article class="tile is-child notification launch-tile">
+                        <iframe width="auto" height="100%" src="https://www.youtube.com/embed/u_A7xdnVllM"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </article>
+                </div>
+            </div>
+            <div class="tile is-parent">
+                <article class="tile is-child notification launch-tile rocket-tile">
+                    <a class="title title-link" href="{{rocket.wiki}}">{{rocket.name}}</a>
+                    <p class="content is-size-4">First Flight:&nbsp;{{format_date rocket.first_flight}}</p>
+                    <p class="content is-size-4">Launch Cost:&nbsp;{{rocket.launch_cost}}</p>
+                    <p class="content is-size-4">{{rocket.description}}</p>
+                    <img src="{{rocket.image}}" alt="Image of {{rocket.name}}" class="rocket-img">
+                </article>
+            </div>
+        </div>
     </main>
     <script src="https://kit.fontawesome.com/1b2e971152.js" crossorigin="anonymous"></script>
 </body>
