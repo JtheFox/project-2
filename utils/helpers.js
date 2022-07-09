@@ -1,3 +1,4 @@
+//Import required packages
 const fetch = require('node-fetch');
 const { Launch } = require('../models');
 
@@ -16,6 +17,7 @@ const parseLaunchData = (launch) => {
     }
 }
 
+//Export model 
 module.exports = {
     format_date: (date) => {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
