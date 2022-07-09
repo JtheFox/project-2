@@ -2,12 +2,10 @@
 const User = require('./User');
 const Launch = require('./Launch');
 const Comment = require('./Comment');
+const Saved = require('./Saved');
 
 //Relationships between the model 
-User.hasMany(Launch, {
-    foreignKey: 'user_id',
-    as: 'saved',
-});
+User.hasMany(Launch);
 
 Launch.hasMany(Comment, {
     foreignKey: 'launch_id',
@@ -26,4 +24,4 @@ Comment.belongsTo(User, {
 });
 
 //Export Models 
-module.exports = { User, Launch, Comment }
+module.exports = { User, Launch, Comment, Saved }
