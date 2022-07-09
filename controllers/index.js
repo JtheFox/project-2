@@ -11,7 +11,7 @@ router.use('/search', searchRoutes);
 
 // 404 Page
 router.get('*', (req, res) => {
-    res.status(404).render('404', { layout: 'login-layout' });
+    res.status(404).render('404', { layout: 'blank' });
 });
 
 // Export router

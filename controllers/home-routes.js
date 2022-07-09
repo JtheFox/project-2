@@ -79,7 +79,7 @@ router.get('/login', async (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('login', { layout: 'login-layout' });
+  res.render('login', { layout: 'blank' });
 });
 
 //GET method to signup the user
@@ -88,7 +88,7 @@ router.get('/signup', async (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('signup', { layout: 'login-layout' });
+  res.render('signup', { layout: 'blank' });
 });
 
 //Export router
