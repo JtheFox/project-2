@@ -57,7 +57,14 @@ a:hover {
 }
 
 /* 404 page */
-.notFound * {
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notFound *:not(:first-child) {
+    margin-top: 1rem;
     text-align: center;
     color: var(--light) !important;
 }
