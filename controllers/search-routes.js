@@ -19,11 +19,14 @@ router.post('/', async (req, res) => {
     console.log('Searching for', req.body.query)
     try {
         const nextLaunch = await getNextLaunch();
-        
-        res.status(404).json();
+
+        const searchLaunch = await Launch.findAll({
+            where: req.query.name
+        });
+        res.status(404).json(searchLaunch);
     } catch (err) {
         res.status(500).json(err);
-    }
+    };
 });
 
 //Export router
