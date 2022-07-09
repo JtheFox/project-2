@@ -29,6 +29,7 @@ module.exports = {
         return { date: nextLaunch.date_utc, forum: nextLaunch.links.reddit.campaign }
     },
     checkNewLaunchData: async () => {
+        console.log('Checking for new launch data from the SpaceX API...');
         const dbLastLaunchData = await Launch.findOne({
             attributes: ['date'],
             order: [['date', 'DESC']]

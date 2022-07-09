@@ -6,7 +6,7 @@ const session = require('express-session');
 // Import express-handlebars
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+const schedule = require('node-schedule');
 
 const routes = require('./controllers');
 // Import the connection object - config directory - connection.js file
@@ -46,6 +46,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
 app.use(routes);
+
+// Daily api sync
+schedule.scheduleJob('0 0 * * *', helpers.checkNewLaunchData());
 
 // turn on connection to db and server
 // Force true to drop/recreate table(s) on every sync
