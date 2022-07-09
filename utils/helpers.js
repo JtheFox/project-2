@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const { Launch } = require('../models');
 
 module.exports = {
     format_date: (date) => {
@@ -10,7 +11,14 @@ module.exports = {
     getNextLaunch: async () => {
         const response = await fetch('https://api.spacexdata.com/v5/launches/next');
         const nextLaunch = await response.json();
-        return { date: nextLaunch.date_utc, forum: nextLaunch.links.reddit.campaign}
+        return { date: nextLaunch.date_utc, forum: nextLaunch.links.reddit.campaign }
+    },
+    checkNewLaunchData: async () => {
+        const lastLaunchDbData = await Launch.findOne({
+            attributes: ['date'],
+            order: [['date', 'DESC']]
+        });
+        console.log(lastSavedLaunchData);
     },
     parseLaunchData: (launch) => {
         return {
@@ -35,7 +43,7 @@ module.exports = {
             first_flight: rocket.first_flight,
             image: rocket.flickr_images[0],
             wiki: rocket.wikipedia,
-            description: rocket.description.substring(0,254),
+            description: rocket.description.substring(0, 254),
             launch_cost: rocket.cost_per_launch
         }
     }
