@@ -464,5 +464,5 @@ main {
 
     .launch-details :is(i, a, p):not(.launch-link) {
         font-size: 1.5rem !important;
-    }   
+    }
 }
