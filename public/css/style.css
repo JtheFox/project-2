@@ -56,6 +56,12 @@ a:hover {
     text-align: center;
 }
 
+/* 404 page */
+.notFound * {
+    text-align: center;
+    color: var(--light) !important;
+}
+
 /* login/signup pages */
 .layoutLogin {
     display: flex;
