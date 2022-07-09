@@ -5,7 +5,15 @@ const Comment = require('./Comment');
 const Saved = require('./Saved');
 
 //Relationships between the model 
-User.hasMany(Launch);
+User.belongsToMany(Launch, {
+    through: Saved,
+    as: 'savedLaunch',
+});
+
+Launch.belongsToMany(User, {
+    through: Saved,
+    as: 'savedLaunch',
+});
 
 Launch.hasMany(Comment, {
     foreignKey: 'launch_id',
