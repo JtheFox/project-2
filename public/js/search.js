@@ -4,8 +4,8 @@ const $ = (sel) => document.querySelector(sel);
 
 // Search Handler
 const searchHandler = async () => {
-    const response = await fetch('/search', {
-        method: 'POST',
+    const response = await fetch('/search-results', {
+        method: 'GET',
         body: JSON.stringify({ query: $('.search-bar').value }),
         headers: { 'Content-Type': 'application/json' },
     });

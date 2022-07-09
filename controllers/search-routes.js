@@ -15,16 +15,16 @@ router.get('/', async (req, res) => {
 * User should be able to search a launch by partial name and find all results containing their search term(s)
 */
 //POST method to be able to search the launches
-router.post('/', async (req, res) => {
-    console.log('Searching for', req.body.query)
-    try {
-        const nextLaunch = await getNextLaunch();
+// router.post('/', async (req, res) => {
+//     console.log('Searching for', req.body.query)
+//     try {
+//         const nextLaunch = await getNextLaunch();
         
-        res.status(404).json();
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+//         res.status(404).json();
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 //Export router
 module.exports = router; 

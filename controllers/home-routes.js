@@ -80,6 +80,15 @@ router.get('/saved', withAuth, async (req, res) => {
   }
 });
 
+//GET method to search by name 
+router.get('/search-results', (req, res) => {
+  try {
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //GET method to logged in the user
 router.get('/login', async (req, res) => {
   if (req.session.loggedIn) {
