@@ -7,6 +7,7 @@
     "test": "node tests/test.js",
     "start": "node server.js",
     "seed": "node seeds/index.js",
+    "update": "node utils/update.js",
     "watch": "nodemon server.js",
     "lint": "npx eslint **/*.js",
     "lint:fix": "npx eslint **/*.js --fix"
