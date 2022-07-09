@@ -14,6 +14,30 @@ router.get('/', async (req, res) => {
 * OR using sequelize FindAll() query
 * User should be able to search a launch by partial name and find all results containing their search term(s)
 */
+
+router.get('/', async (req, res) => {
+    try {
+      const nextLaunch = await getNextLaunch();
+      //Find all launch data
+      const dbLaunchData = await Launch.findAll({
+        attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
+        order: [['date', 'DESC']]
+      });
+      //Serialize data
+      const launches = dbLaunchData.map(post => post.get({ plain: true }));
+      //Render the home page
+      res.render('search', {
+        launches,
+        nextLaunch,
+        loggedIn: req.session.loggedIn
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
+
 //POST method to be able to search the launches
 router.post('/', async (req, res) => {
     console.log('Searching for', req.body.query)
