@@ -61,16 +61,23 @@ router.get('/launch/:id', withAuth, async (req, res) => {
 
 //GET method to saved the user choice of launches
 router.get('/saved', withAuth, async (req, res) => {
-  const nextLaunch = await getNextLaunch();
-  // try {
-  //   const dbUserData = await User.findByPk(req.session.user_id);
-  //   const user = dbUserData.get({ plan: true });
-  //   console.log(user);
-  // } catch (err) {
-  //   console.log(err);
-  //   res.status(500).json(err);
-  // }
-  res.render('view-saved', { nextLaunch, loggedIn: req.session.loggedIn });
+  try {
+    const nextLaunch = await getNextLaunch();
+    const dbUserData = await User.findByPk(req.session.user_id, {
+      include: [
+        {
+          model: Launch,
+          attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
+        }
+      ]
+    });
+    const launches = dbUserData.get({ plain: true }).launches.sort((a, b) => new Date(a.date) - new Date(b.date)).reverse();
+    console.log('launches', launches, dbUserData.get({ plain: true }))
+    res.render('view-saved', { launches, nextLaunch, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 //GET method to logged in the user

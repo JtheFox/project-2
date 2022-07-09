@@ -1,13 +1,13 @@
 const $ = (sel) => document.querySelector(sel);
 
 //Add the post to the dashboard
-const savedAddHandler = async (event) => {
+const savedAddHandler = async (evemt) => {
     // Add saved button
     const addSavedBtn = event.target;
     
     if (addSavedBtn) {
         const launch_id = document.location.pathname.split('/').at(-1);
-        const response = await fetch('/api/users/saved', {
+        const response = await fetch('/api/users/save', {
             method: 'POST',
             body: JSON.stringify({ launch_id }),
             headers: { 'Content-Type': 'application/json' },

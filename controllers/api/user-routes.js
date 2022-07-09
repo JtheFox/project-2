@@ -4,14 +4,15 @@ const { User, Comment, Launch } = require('../../models');
 //GET method to get user 
 router.get('/', async (req, res) => {
     try {
-        //Find all user  
-        // TODO: Include Launch model in user query to check if launches are saving to the user
         const dbUserData = await User.findAll({
             attributes: { exclude: ['password'] },
             include: [
                 {
                     model: Comment,
                     attributes: ['id', 'comment_text', 'created_at'],
+                },
+                {
+                    model: Launch,
                 }
             ]
         });
@@ -24,25 +25,17 @@ router.get('/', async (req, res) => {
     }
 });
 
-// TODO: create POST route to add launch to a user's saved launches
-// router.post('/saved', async (req, res) => {
-//     try {
-//         //create a new save
-//         const createSave = await Launch.findOne({
-//             where: { id: req.body.id, },
-//         });
-//         //Save session the user created
-//         req.session.save(() => {
-//             req.session.launch.id = createSave;
-//             req.session.loggedIn = true;
-//             res.json(createSave);
-//         });
-//     } catch (err) {
-//         //Return error if any
-//         console.log(err)
-//         res.json(err);
-//     }
-// });
+// add launch to saved
+router.post('/save', async (req, res) => {
+    try {
+        const user = await User.findByPk(req.session.user_id);
+        const launch = await Launch.findByPk(req.body.launch_id);
+        await user.addLaunch(launch);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
 
 //POST method to create a new user 
 router.post("/", async (req, res) => {
