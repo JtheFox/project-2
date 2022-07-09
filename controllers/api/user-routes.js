@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Comment } = require('../../models');
+const { User, Comment, Launch } = require('../../models');
 
 //GET method to get user 
 router.get('/', async (req, res) => {
@@ -25,6 +25,24 @@ router.get('/', async (req, res) => {
 });
 
 // TODO: create POST route to add launch to a user's saved launches
+// router.post('/saved', async (req, res) => {
+//     try {
+//         //create a new save
+//         const createSave = await Launch.findOne({
+//             where: { id: req.body.id, },
+//         });
+//         //Save session the user created
+//         req.session.save(() => {
+//             req.session.launch.id = createSave;
+//             req.session.loggedIn = true;
+//             res.json(createSave);
+//         });
+//     } catch (err) {
+//         //Return error if any
+//         console.log(err)
+//         res.json(err);
+//     }
+// });
 
 //POST method to create a new user 
 router.post("/", async (req, res) => {
