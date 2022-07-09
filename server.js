@@ -48,7 +48,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 // Daily api sync
-schedule.scheduleJob('0 0 * * *', helpers.checkNewLaunchData());
+schedule.scheduleJob('0 0 * * *', helpers.checkNewLaunchData);
 
 // turn on connection to db and server
 // Force true to drop/recreate table(s) on every sync
