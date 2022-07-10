@@ -2,3 +2,7 @@
 {{#each launches as |launch|}}
 {{> launch-details}}
 {{/each}}
+<nav class="pagination">
+<a class="button is-success pagination-previous is-rounded" href="/?page={{prevPage}}">Previous Page</a>
+<a class="button is-success pagination-next is-rounded" href="/?page={{nextPage}}">Next Page</a>
+</nav>
