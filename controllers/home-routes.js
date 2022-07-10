@@ -71,9 +71,12 @@ router.get('/saved', withAuth, async (req, res) => {
         }
       ]
     });
+    if(!dbUserData.length) {
+      res.render('saved', { noResults: true, nextLaunch, loggedIn: req.session.loggedIn });
+      return;
+    }
     const launches = dbUserData.get({ plain: true }).launches.sort((a, b) => new Date(a.date) - new Date(b.date)).reverse();
-    console.log('launches', launches, dbUserData.get({ plain: true }))
-    res.render('view-saved', { launches, nextLaunch, loggedIn: req.session.loggedIn });
+    res.render('saved', { launches, nextLaunch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
