@@ -24,7 +24,8 @@ router.get('/', async (req, res) => {
       launches,
       nextLaunch,
       loggedIn: req.session.loggedIn,
-      nextPage: page + 1
+      nextPage: page + 1,
+      prevPage: page - 1
     });
   } catch (err) {
     console.log(err);
