@@ -78,7 +78,7 @@ router.get('/saved', withAuth, async (req, res) => {
         }
       ]
     });
-    if(!dbUserData) {
+    if (!dbUserData) {
       res.render('saved', { noResults: true, nextLaunch, loggedIn: req.session.loggedIn });
       return;
     }
