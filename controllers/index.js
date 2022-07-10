@@ -2,12 +2,10 @@
 const router = require('express').Router();
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes');
-const searchRoutes = require('./search-routes');
 
 // Read the file from directory 
 router.use('/api', apiRoutes);
 router.use('/', homeRoutes);
-router.use('/search', searchRoutes);
 
 // 404 Page
 router.get('*', (req, res) => {

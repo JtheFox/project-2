@@ -3,6 +3,7 @@ const router = require('express').Router();
 const withAuth = require('../utils/auth');
 const { getRocketData, getNextLaunch } = require('../utils/helpers');
 const { Launch, User, Comment } = require('../models');
+const { Op } = require('sequelize');
 
 //GET method to get all launches
 router.get('/', async (req, res) => {
@@ -77,6 +78,45 @@ router.get('/saved', withAuth, async (req, res) => {
     }
     const launches = dbUserData.get({ plain: true }).launches.sort((a, b) => new Date(a.date) - new Date(b.date)).reverse();
     res.render('saved', { launches, nextLaunch, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//GET method to search by name 
+router.get('/search', async (req, res) => {
+  try {
+    const { name } = req.query;
+    console.log('query', name)
+    const nextLaunch = await getNextLaunch();
+    // render default search page if no query provided
+    if (!Object.entries(req.query).length) {
+      res.render('search', { nextLaunch, loggedIn: req.session.loggedIn });
+      return;
+    }
+    // redirect on empty query string
+    if (!name.length) {
+      res.redirect('/search');
+      return;
+    }
+    // search db 
+    console.log('Searching for', name);
+    const dbSearchData = await Launch.findAll({
+      where: {
+        [Op.or]: [
+          { name: { [Op.substring]: name } },
+          { rocket_name: { [Op.substring]: name } }
+        ]
+      },
+      attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
+      order: [['date', 'DESC']]
+    });
+    if (!dbSearchData.length) {
+      res.render('search', { noResults: true, nextLaunch, loggedIn: req.session.loggedIn });
+    }
+    const launches = dbSearchData.map(search => search.get({ plain: true }));
+    res.render('search', { launches, nextLaunch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
