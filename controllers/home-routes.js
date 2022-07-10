@@ -6,12 +6,16 @@ const { Launch, User, Comment } = require('../models');
 
 //GET method to get all launches
 router.get('/', async (req, res) => {
+  const limit = 10;
   try {
+    const page = parseInt(req.query.page) || 1;
     const nextLaunch = await getNextLaunch();
     //Find all launch data
     const dbLaunchData = await Launch.findAll({
       attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
-      order: [['date', 'DESC']]
+      order: [['date', 'DESC']],
+      limit,
+      offset: limit * (page - 1)
     });
     //Serialize data
     const launches = dbLaunchData.map(post => post.get({ plain: true }));
@@ -19,7 +23,8 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
       launches,
       nextLaunch,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      nextPage: page + 1
     });
   } catch (err) {
     console.log(err);
