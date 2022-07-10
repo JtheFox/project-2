@@ -102,10 +102,12 @@ router.get('/search', async (req, res) => {
     const dbSearchData = await Launch.findAll({
       where: {
         [Op.or]: [
-          { name: name },
-          { rocket_name: name }
+          { name: { [Op.substring]: name } },
+          { rocket_name: { [Op.substring]: name } }
         ]
-      }
+      },
+      attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
+      order: [['date', 'DESC']]
     });
     const launches = dbSearchData.map(search => search.get({ plain: true }));
     res.render('search', { launches, nextLaunch, loggedIn: req.session.loggedIn });
