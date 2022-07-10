@@ -109,6 +109,9 @@ router.get('/search', async (req, res) => {
       attributes: ['id', 'icon', 'name', 'rocket_name', 'date', 'webcast'],
       order: [['date', 'DESC']]
     });
+    if (!dbSearchData.length) {
+      res.render('search', { noResults: true, nextLaunch, loggedIn: req.session.loggedIn });
+    }
     const launches = dbSearchData.map(search => search.get({ plain: true }));
     res.render('search', { launches, nextLaunch, loggedIn: req.session.loggedIn });
   } catch (err) {

@@ -7,8 +7,9 @@
     </form>
 </div>
 </div>
-<div class="is-size-3 noResults"></div>
+{{#if noResults}} 
+<div class="is-size-3 noResults">No Launches Found</div>
+{{/if}}
 {{#each launches as |launch|}}
 {{> launch-details}}
 {{/each}}
-<script src="/js/search.js"></script>
