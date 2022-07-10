@@ -81,9 +81,14 @@ router.get('/saved', withAuth, async (req, res) => {
 });
 
 //GET method to search by name 
-router.get('/search-results', (req, res) => {
+router.get('/search-results', async (req, res) => {
   try {
-
+    const search = await Launch.findAll({
+      where: {
+        name: req.query.name
+      }
+    });
+    res.json(search);
   } catch (err) {
     res.status(500).json(err);
   }
