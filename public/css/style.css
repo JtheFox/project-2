@@ -232,8 +232,8 @@ main {
     word-break: keep-all;
 }
 
-/* search/favorites page */
-.search-header, .favorites-header {
+/* search/saved page */
+.search-header, .saved-header {
     display: flex;
     flex-direction: column;
     align-items: center;

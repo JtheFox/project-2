@@ -1,6 +1,9 @@
 <div class="favorites-header">
-    <h2 class="is-size-1 favorites-title">Favorites</h2>
+    <h2 class="is-size-1 saved-title">Saved Launches</h2>
 </div>
+{{#if noResults}} 
+<div class="is-size-3 noResults">No Launches Found</div>
+{{/if}}
 {{#each launches as |launch|}}
 {{> launch-details}}
 {{/each}}
