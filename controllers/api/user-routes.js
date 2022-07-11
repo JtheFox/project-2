@@ -31,6 +31,7 @@ router.post('/save', async (req, res) => {
         const user = await User.findByPk(req.session.user_id);
         const launch = await Launch.findByPk(req.body.launch_id);
         await user.addLaunch(launch);
+        res.status(204).json();
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -43,6 +44,7 @@ router.delete('/save', async (req, res) => {
         const user = await User.findByPk(req.session.user_id);
         const launch = await Launch.findByPk(req.body.launch_id);
         await user.removeLaunch(launch);
+        res.status(204);
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
