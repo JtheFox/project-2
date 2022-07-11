@@ -5,8 +5,11 @@
                 <article class="tile is-child launch-tile">
                     <div class="title-box">
                         <p class="title">{{launch.name}}</p>
+                        {{#if isSaved}}
+                        <i class="fa-solid fa-star removeSavedBtn" id="removeFromSaved"></i>
+                        {{else}}
                         <i class="fa-regular fa-star title toSavedBtn" id="addToSaved"></i>
-                        <i class="fa-solid fa-star toSavedBtn" style="display:none"></i>
+                        {{/if}}
                     </div>
                     <p class="content is-size-4">Date: {{format_date launch.date}}</p>
                     <p class="content is-size-4">Flight&nbsp;Number:&nbsp;{{launch.flight_number}}</p>

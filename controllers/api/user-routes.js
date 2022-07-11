@@ -37,6 +37,18 @@ router.post('/save', async (req, res) => {
     }
 });
 
+// delete launch from saved
+router.delete('/save', async (req, res) => {
+    try {
+        const user = await User.findByPk(req.session.user_id);
+        const launch = await Launch.findByPk(req.body.launch_id);
+        await user.removeLaunch(launch);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 //POST method to create a new user 
 router.post("/", async (req, res) => {
     try {

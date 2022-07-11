@@ -1,7 +1,7 @@
 const $ = (sel) => document.querySelector(sel);
 
 //Add the post to the dashboard
-const savedAddHandler = async (evemt) => {
+const savedAddHandler = async (event) => {
     // Add saved button
     const addSavedBtn = event.target;
     
@@ -32,7 +32,7 @@ const savedRemoveHandler = async (event) => {
         });
 
         if (!response.ok) {
-            alert('Failed to add to saved');
+            alert('Failed to remove from saved');
         }
     }
 }

@@ -55,11 +55,13 @@ router.get('/launch/:id', withAuth, async (req, res) => {
       res.status(404).json({ message: 'No launch found with this id' });
       return;
     }
+    const user = await User.findByPk(req.session.user_id);
+    const isSaved = await user.hasLaunch(dbLaunchData) ? true : false;
     //Seralize the data
     const launch = dbLaunchData.get({ plain: true });
     const rocket = await getRocketData(launch.rocket_id);
     //Render the launch page
-    res.render('view-launch', { launch, rocket, nextLaunch, loggedIn: req.session.loggedIn });
+    res.render('view-launch', { isSaved, launch, rocket, nextLaunch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
