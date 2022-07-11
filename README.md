@@ -8,13 +8,12 @@
 4. [Installation](#installation)
 5. [Visuals](#visuals)
 6. [Technology Used](#technologies-used)
-8. [API Used](#apis-used)
-9. [Resources](#resources)
-10. [Authors and Acknowledgements](#authors-and-acknowledgements)
+7. [Resources](#resources)
+8. [Authors and Acknowledgements](#authors-and-acknowledgements)
 
 ## Description
 
-Our website is a space launch application that allows users to see the upcoming space launches from SpaceX. The user will not be able to interact with the application unless they have an account or created an account. Once login/signup is complete, the user gains the ability to add comments about any launch. 
+Our website is a space launch application that allows users to see the upcoming space launches from SpaceX. The user will not be able to interact with the application unless they have an account or created an account. Once login/signup is complete, the user gains the ability to add comments about any launch. The user also has the ability to add their favorite launches on the saved pages. The user also has the ability to search by the launch name or rocket name. 
 
 ## User Story
 
@@ -36,7 +35,9 @@ How would a user use this application:
 
 - Step 3: Once user login/signup the user can track the launch they want and it will be in the watched section 
 
-- Step 4: When the user click on their profile page, they are allow to edit the home page 
+- Step 4: When user click on a specific launch, user is allow to click on the favorite button and it is saved to saved page
+
+- Step 5: The user has the ability to search by launch name or rocket name in the search page
 
 ## Installation
 
@@ -60,6 +61,10 @@ This is the comments section where a user can comment on a launch
 
 ![Comment of a launch](./public/images/launch.png)
 
+This is the search section where a user can search by launch name or rocket name 
+
+![Search for launch or rocket name](./public/images/search.png)
+
 ## Features
 
 - Have to login/signup in order to interact with the website
@@ -78,9 +83,6 @@ This is the comments section where a user can comment on a launch
 - MySQL
 - Sequelize
 - Heroku
-
-## APIs Used
-
 - SpaceX REST API
 
 ## Resources
