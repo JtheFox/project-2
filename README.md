@@ -59,7 +59,7 @@ This is what the user will see when a launch is clicked
 
 This is the comments section where a user can comment on a launch
 
-![Comment of a launch](./public/images/launch.png)
+![Comment of a launch](./public/images/comments.png)
 
 This is the search section where a user can search by launch name or rocket name 
 
