@@ -26,11 +26,12 @@ router.get('/', async (req, res) => {
 });
 
 // add launch to saved
-router.post('/save', async (req, res) => {
+router.post('/save/:id', async (req, res) => {
     try {
         const user = await User.findByPk(req.session.user_id);
-        const launch = await Launch.findByPk(req.body.launch_id);
+        const launch = await Launch.findByPk(req.params.id);
         await user.addLaunch(launch);
+        res.status(204).json();
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -38,11 +39,12 @@ router.post('/save', async (req, res) => {
 });
 
 // delete launch from saved
-router.delete('/save', async (req, res) => {
+router.delete('/remove/:id', async (req, res) => {
     try {
         const user = await User.findByPk(req.session.user_id);
-        const launch = await Launch.findByPk(req.body.launch_id);
+        const launch = await Launch.findByPk(req.params.id);
         await user.removeLaunch(launch);
+        res.status(204).json();
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

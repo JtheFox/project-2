@@ -81,11 +81,12 @@ router.get('/saved', withAuth, async (req, res) => {
       ]
     });
     if (!dbUserData) {
-      res.render('saved', { noResults: true, nextLaunch, loggedIn: req.session.loggedIn });
+      res.redirect('/login');
       return;
     }
     const launches = dbUserData.get({ plain: true }).launches.sort((a, b) => new Date(a.date) - new Date(b.date)).reverse();
-    res.render('saved', { launches, nextLaunch, loggedIn: req.session.loggedIn });
+    const noResults = launches?.length ? false : true;
+    res.render('saved', { noResults, launches, nextLaunch, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

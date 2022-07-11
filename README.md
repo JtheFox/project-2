@@ -59,17 +59,23 @@ This is what the user will see when a launch is clicked
 
 This is the comments section where a user can comment on a launch
 
-![Comment of a launch](./public/images/launch.png)
+![Comment of a launch](./public/images/comments.png)
 
 This is the search section where a user can search by launch name or rocket name 
 
 ![Search for launch or rocket name](./public/images/search.png)
+
+This is the saved page section where user can track the launch that they are interested in 
+
+![Saved/Favorite Page](./public/images/favorite.png)
 
 ## Features
 
 - Have to login/signup in order to interact with the website
 - Ability to add comments on a launch
 - Use API to get the upcoming launch
+- Search for a specific launch by name or rocket name 
+- Track their favorite launch in the saved page
 
 ## Technologies Used
 
