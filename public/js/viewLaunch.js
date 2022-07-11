@@ -8,13 +8,11 @@ const savedBtnHandler = async () => {
 //Add the post to the dashboard
 const savedAddHandler = async () => {
     const launch_id = document.location.pathname.split('/').at(-1);
-    console.log('saving')
-    const response = await fetch('/api/users/save', {
+    const response = await fetch(`/api/users/save/${launch_id}`, {
         method: 'POST',
-        body: JSON.stringify({ launch_id }),
         headers: { 'Content-Type': 'application/json' },
     });
-    
+
     if (response.ok) {
         alert('Launch added to saved');
         document.location.reload();
@@ -24,9 +22,8 @@ const savedAddHandler = async () => {
 // Remove saved button
 const savedRemoveHandler = async () => {
     const launch_id = document.location.pathname.split('/').at(-1);
-    const response = await fetch('/api/users/save', {
+    const response = await fetch(`/api/users/remove/${launch_id}`, {
         method: 'DELETE',
-        body: JSON.stringify({ launch_id }),
         headers: { 'Content-Type': 'application/json' },
     });
 
