@@ -14,6 +14,7 @@ const savedAddHandler = async () => {
         body: JSON.stringify({ launch_id }),
         headers: { 'Content-Type': 'application/json' },
     });
+    
     if (response.ok) {
         alert('Launch added to saved');
         document.location.reload();
