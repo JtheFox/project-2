@@ -1,5 +1,6 @@
 /* global elements */
 @import url('https://fonts.googleapis.com/css2?family=K2D&display=swap');
+
 :root {
     --light: #d2d2d2;
     background-color: #222;
@@ -19,15 +20,15 @@ body {
 *::-webkit-scrollbar {
     width: 1em;
 }
- 
+
 *::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
- 
+
 *::-webkit-scrollbar-thumb {
-  outline: 1px solid slategrey;
-  background-color: darkgrey;
+    outline: 1px solid slategrey;
+    background-color: darkgrey;
 }
 
 :is(a, p).title {
@@ -51,7 +52,8 @@ a:hover {
     text-decoration: underline;
 }
 
-.page-title, .saved-title {
+.page-title,
+.saved-title {
     margin-bottom: 1.5rem;
     text-align: center;
 }
@@ -173,7 +175,7 @@ main {
     margin-top: 2rem;
 }
 
-.sidebar-group > * {
+.sidebar-group>* {
     padding-right: 0.5rem;
 }
 
@@ -204,7 +206,8 @@ main {
 .contentBox {
     display: flex;
     flex-direction: column;
-    min-height: min-content; /* needs vendor prefixes */
+    min-height: min-content;
+    /* needs vendor prefixes */
 }
 
 /* home page */
@@ -233,7 +236,8 @@ main {
 }
 
 /* search/saved page */
-.search-header, .saved-header {
+.search-header,
+.saved-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -256,6 +260,31 @@ main {
 
 .noResults {
     text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.pagination:not(:first-of-type) {
+    margin-top: 1.5rem;
+}
+
+.pagination .button {
+    background-color: var(--light);
+    color: #222;
+    transition: all 0.1s ease-in-out;
+}
+
+.pagination .button:not(:first-child) {
+    margin-left: 1rem;
+}
+
+.pagination .button:hover {
+    background-color: white;
+    color: black !important;
 }
 
 /* single launch page */
@@ -282,7 +311,7 @@ main {
     background-color: gray;
 }
 
-.tile > .content {
+.tile>.content {
     margin-bottom: 0;
 }
 
@@ -332,7 +361,7 @@ main {
     flex-direction: column;
 }
 
-.comments > .title {
+.comments>.title {
     text-align: center;
 }
 
@@ -371,6 +400,7 @@ main {
 
 /* medium devices and below */
 @media only screen and (max-width: 992px) {
+
     /* hamburger menu button */
     .headerBtn {
         display: block;
@@ -386,7 +416,7 @@ main {
         font-size: 3rem !important;
         text-align: center;
     }
-    
+
     .sidebar:not(.show) {
         margin-left: -100vw;
         transition: 0.3s ease-in-out;
@@ -405,6 +435,7 @@ main {
 
 /* small devices and below */
 @media only screen and (max-width: 768px) {
+
     /* header */
     .layoutHeader :is(p, a) {
         font-size: 2rem;
@@ -423,7 +454,7 @@ main {
     .sidebar :is(a, p) {
         font-size: 1.75rem !important;
     }
-    
+
     /* launch details */
     .launch-card {
         margin-left: 10%;
@@ -467,7 +498,7 @@ main {
     .launch-link {
         font-size: 1.75rem !important;
     }
-    
+
     .launch-details {
         overflow: hidden;
         white-space: nowrap;
