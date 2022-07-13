@@ -97,7 +97,6 @@ router.get('/saved', withAuth, async (req, res) => {
 router.get('/search', async (req, res) => {
   try {
     const { name } = req.query;
-    console.log('query', name)
     const nextLaunch = await getNextLaunch();
     // render default search page if no query provided
     if (!Object.entries(req.query).length) {
@@ -105,12 +104,11 @@ router.get('/search', async (req, res) => {
       return;
     }
     // redirect on empty query string
-    if (!name.length) {
+    if (!name?.length) {
       res.redirect('/search');
       return;
     }
     // search db 
-    console.log('Searching for', name);
     const dbSearchData = await Launch.findAll({
       where: {
         [Op.or]: [
@@ -123,6 +121,7 @@ router.get('/search', async (req, res) => {
     });
     if (!dbSearchData.length) {
       res.render('search', { noResults: true, nextLaunch, loggedIn: req.session.loggedIn });
+      return
     }
     const launches = dbSearchData.map(search => search.get({ plain: true }));
     res.render('search', { launches, nextLaunch, loggedIn: req.session.loggedIn });
