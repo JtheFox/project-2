@@ -16,7 +16,6 @@
     "@babel/eslint-parser": "^7.18.2",
     "eslint": "^8.19.0",
     "jest": "^28.1.2",
-    "node-fetch": "^2.6.7",
     "nodemon": "^2.0.3"
   },
   "dependencies": {
@@ -28,6 +27,7 @@
     "express-session": "^1.17.3",
     "moment": "^2.29.4",
     "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.10",
     "node-schedule": "^2.1.0",
     "sequelize": "^6.21.2"
   },
