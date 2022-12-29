@@ -1,5 +1,5 @@
 //Import required packages
-const fetch = require('node-fetch');
+const fetch = require('axios');
 const { Launch } = require('../models');
 
 const parseLaunchData = (launch) => {
@@ -27,7 +27,7 @@ module.exports = {
     },
     getNextLaunch: async () => {
         const response = await fetch('https://api.spacexdata.com/v5/launches/next');
-        const nextLaunch = await response.json();
+        const nextLaunch = response.data;
         return { date: nextLaunch.date_utc, forum: nextLaunch.links.reddit.campaign }
     },
     checkNewLaunchData: async () => {
@@ -38,7 +38,7 @@ module.exports = {
         });
         const lastLaunchDate = new Date(dbLastLaunchData.get({ plain: true }).date);
         const response = await fetch('https://api.spacexdata.com/v5/launches/past');
-        const apiLaunchData = await response.json();
+        const apiLaunchData = await response.data;
 
         const newLaunchData = apiLaunchData.filter(launch => new Date(launch.date_utc) > lastLaunchDate).map(launch => parseLaunchData(launch));
         if (newLaunchData.length) {
@@ -49,7 +49,7 @@ module.exports = {
     parseLaunchData,
     getRocketData: async (rocketID) => {
         const response = await fetch(`https://api.spacexdata.com/v4/rockets/${rocketID}`);
-        const rocket = await response.json();
+        const rocket = await response.data;
         return {
             id: rocket.id,
             name: rocket.name,

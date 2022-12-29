@@ -5,12 +5,11 @@ const seedComments = require("./comment-seed");
 const seedUsers = require("./user-seed");
 
 const sequelize = require('../config/connection');
-const fetch = require('node-fetch');
+const fetch = require('axios');
 const { parseLaunchData } = require('../utils/helpers');
 const rockets = new Map();
 
 const mapLaunchData = (launch) => {
-  console
   const launchData = parseLaunchData(launch);
   launchData.rocket_name = rockets.get(launch.rocket);
   return launchData;
@@ -22,7 +21,7 @@ const seedAll = async () => {
     await sequelize.sync({ force: true });
 
     const launchesResponse = await fetch('https://api.spacexdata.com/v5/launches/past');
-    const launchDataRaw = await launchesResponse.json();
+    const launchDataRaw = await launchesResponse.data;
 
     const rocketList = [];
     launchDataRaw.forEach(launch => {
@@ -31,7 +30,7 @@ const seedAll = async () => {
 
     for (const rocketID of rocketList) {
       const rocketsResponse = await fetch(`https://api.spacexdata.com/v4/rockets/${rocketID}`);
-      const rocket = await rocketsResponse.json();
+      const rocket = await rocketsResponse.data;
       rockets.set(rocketID, rocket.name);
     }
 
